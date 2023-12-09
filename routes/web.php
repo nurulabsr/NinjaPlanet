@@ -20,7 +20,12 @@ Route::get('/', function () {
 
 
 /// Group Route 
-
 Route::group(['prefix' => 'product'], function(){
-     Route::get('/', ['ProductHomeController', 'HomeProduct']);
+     Route::get('/', function(){
+       return view('HomeProduct');
+     });
+
+     Route::get('/airbus', function(){
+        return view('Airbus');
+     });
 });

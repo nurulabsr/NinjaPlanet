@@ -7,8 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <h1 style="margin: 105;">This is the HomeProduct page</h1>
-
+    <h1>This is the Airbus...!</h1>
 </body>
 </html>
