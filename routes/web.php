@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AirbusController;
-use App\Http\Controllers\ProductHomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +13,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [AirbusController::class, 'HomePage']);
+// Route::get('/', [AirbusController', 'HomePage']);
+Route::get('/edit', 'AirbusController@EditAirbusData');
+Route::get('/create', [AirbusController::class, 'createAirbusData'])->name('create');
+Route::post('/post', [AirbusController::class, 'StoreAirBusData'])->name('posts.store');
 
 Route::group(['prefix' => 'airbus'], function(){
-  Route::get('/create', [AirbusController::class, 'createAirbusData']);
-  Route::get('/update', [AirbusController::class, 'EditAirbusData']);
+  
 
 });

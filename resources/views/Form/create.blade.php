@@ -24,12 +24,15 @@
     @endforeach    
     @endif
     <div class="card-body">
-        <form action="{{route()}}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="">Image</label>
-                <input type="file" name="airbus_image_file" class="form-control">
-            </div>
+                <input type="file" name="airbus_image_file" id="airbus_image_file" class="form-control">
+                {{-- @error('airbus_image_file')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror --}}
+            </div>            
             <div class="form-group">
                 <label for="">Airbus Name</label>
                 <input type="text" name="airbus_name" class="form-control">
@@ -40,17 +43,18 @@
             </div>
             <div class="form-group">
                <label name="" id="">Category</label>
-               <select name="category_id" id="" class="form-control">
-                <option value="">Select</option>
-                <option value="">Option 1</option>
+               <select name="type_id" id="" class="form-control">
+                @foreach ($types as $type)
+                <option value="{{$type->id}}">{{$type->type_name}}</option>
+                @endforeach
                </select>
             </div>
             <div class="form-group">
                 <label for="">Airbus Detail</label>
                 <textarea type="text" name="airbus_detail" class="form-control" rows="10"> </textarea>
             </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-warning btn-lg">
+            <div class="form-group mt-3">
+                <button class="btn btn-primary">Submit</button>
             </div>
         </form>
     </div>
