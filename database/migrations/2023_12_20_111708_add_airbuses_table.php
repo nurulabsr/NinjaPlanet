@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('airbuses', function (Blueprint $table) {
-            //
+            $table->text('airbus_image');
+            $table->integer('type_id');
         });
     }
 
@@ -22,7 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('airbuses', function (Blueprint $table) {
-            //
+            $table->dropSoftDeletes();
         });
     }
 };

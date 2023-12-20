@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('types', function (Blueprint $table) {
             $table->id();
+            $table->string('type_name');
             $table->timestamps();
         });
     }
@@ -21,7 +22,10 @@ return new class extends Migration
      * Reverse the migrations.
      */
     public function down(): void
-    {
+    {   
+        Schema::table('types', function(Blueprint $table){
+          $table->dropSoftDeletes();
+        });
         Schema::dropIfExists('types');
     }
 };
