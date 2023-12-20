@@ -44,6 +44,7 @@
             <div class="form-group">
                <label name="" id="">Category</label>
                <select name="type_id" id="" class="form-control">
+                <option value="">Select</option>
                 @foreach ($types as $type)
                 <option value="{{$type->id}}">{{$type->type_name}}</option>
                 @endforeach
