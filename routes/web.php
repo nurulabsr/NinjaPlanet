@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AirbusController;
 use App\Http\Controllers\ProductHomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,19 +14,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', [AirbusController::class, 'HomePage']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::group(['prefix' => 'airbus'], function(){
+  Route::get('/create', [AirbusController::class, 'createAirbusData']);
 
-
-/// Group Route 
-Route::group(['prefix' => 'product'], function(){
-     Route::get('/', function(){
-       return view('HomeProduct');
-     });
-
-     Route::get('/airbus', function(){
-        return view('Airbus');
-     });
 });

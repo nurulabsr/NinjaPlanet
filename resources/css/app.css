@@ -1,0 +1,13 @@
+/* resources/css/app.css */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Your custom styles go here */
+
+body {
+  font-family: 'Helvetica', sans-serif;
+}
+
+/* Additional custom styles... */
