@@ -5,13 +5,13 @@
     <div class="card-header">
         <div class="row">
             <div class="col-md-6"> 
-                <h1 class="m-1">Create Airbus Data</h1>
+                <h1 class="m-1">Edit Airbus Data</h1>
             </div>
             <div class="col-md-6 d-flex justify-content-end"> 
-                <button class="btn btn-danger btn-sm m-2"> Recycle Bin</button>
-                <button class="btn btn-warning btn-sm m-2"> Edit Database</button>
-                <button class="btn btn-info btn-sm m-2"> Data List </button>
-                <button class="btn btn-success btn-sm m-2">Category Section</button>
+                <button class="btn btn-warning btn-sm m-md-2 m-sm-1"> Create Airbus Data</button>
+                <button class="btn btn-danger btn-sm m-md-2  m-sm-1">  Airbus Data Recycle Bin</button>
+                <button class="btn btn-info btn-sm m-md-2    m-sm-1">   Air Data List</button>
+                <button class="btn btn-success btn-sm m-md-2 m-sm-1">Category Section</button>
 
             </div>
         </div>
@@ -28,7 +28,7 @@
             </div>
             <div class="form-group">
                <label name="" id="">Category</label>
-               <select name="category_id" id="" class="form-control">
+               <select name="" id="" class="form-control">
                 <option value="">Select</option>
                 <option value="">Option 1</option>
                </select>

@@ -18,5 +18,6 @@ Route::get('/', [AirbusController::class, 'HomePage']);
 
 Route::group(['prefix' => 'airbus'], function(){
   Route::get('/create', [AirbusController::class, 'createAirbusData']);
+  Route::get('/update', [AirbusController::class, 'EditAirbusData']);
 
 });
