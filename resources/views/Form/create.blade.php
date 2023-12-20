@@ -16,15 +16,27 @@
             </div>
         </div>
     </div>
+    @if($errors->any())
+    @foreach ($errors->all() as $error )
+         <div class="alert alert-danger">
+          {{$error}}
+         </div>
+    @endforeach    
+    @endif
     <div class="card-body">
-        <form action="">
+        <form action="{{route()}}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="form-group">
                 <label for="">Image</label>
-                <input type="file" name="image_file" class="form-control">
+                <input type="file" name="airbus_image_file" class="form-control">
             </div>
             <div class="form-group">
                 <label for="">Airbus Name</label>
                 <input type="text" name="airbus_name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Airbus Status</label>
+                <input type="text" name="airbus_status" class="form-control">
             </div>
             <div class="form-group">
                <label name="" id="">Category</label>
