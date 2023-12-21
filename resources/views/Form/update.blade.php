@@ -39,7 +39,7 @@
             </div>
             <div class="form-group">
                 <label for="">Airbus Detail</label>
-                <textarea type="text" name="airbus_detail" class="form-control" rows="10">{{$airbus->airbus_detail}}</textarea>
+                <textarea type="text" name="airbus_detail" class="form-control" rows="10">{{$airbus->airbus_description}}</textarea>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-warning btn-lg">
