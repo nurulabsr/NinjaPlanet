@@ -16,8 +16,16 @@
             </div>
         </div>
     </div>
+    @if($errors->any())
+    @foreach ($errors->all() as $error )
+         <div class="alert alert-danger">
+          {{$error}}
+         </div>
+    @endforeach    
+    @endif
     <div class="card-body">
         <form action="{{route('airbus.update', $airbus->id)}}" method="POST" enctype="multipart/form-data">
+            @csrf
             @method('PUT')
             <div class="form-group">
                 <img src="{{asset($airbus->airbus_image)}}" alt="" style="width: 4vw;">
@@ -33,7 +41,7 @@
                <select name="type_id" id="" class="form-control">
                 <option value="">Select</option>
                 @foreach ($types as $type)
-                <option {{$type->id == $airbus->type_id ? 'selected' : ''}} value="{{$type->id}}">{{$type->type_name}}</option>
+                <option {{$type->id == $airbus->type_id?'selected':''}} value="{{$type->id}}">{{$type->type_name}}</option>
                 @endforeach
                </select>
             </div>

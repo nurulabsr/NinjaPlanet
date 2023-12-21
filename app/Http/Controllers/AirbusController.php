@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Airbus;
 use App\Models\Type;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
@@ -25,6 +26,8 @@ class AirbusController extends Controller{
         return view('Form.update', compact('airbus', 'types'));
     }
 
+
+    // store Airbus data
     public function StoreAirBusData(Request $request){
         Log::info('Form submitted');
        
@@ -49,26 +52,29 @@ class AirbusController extends Controller{
        return redirect()->route('create');
     }
 
+
+    //update airbus data
     public function UpdateAirBusData(string $id, Request $request){
 
         $update = Airbus::findOrFail($id);
         $request->validate([
-            'airbus_name' => ['required', 'string', 'max:50000'],
+            'airbus_updated_name' => ['required', 'string'],
             'type_id' => ['required', 'integer', 'numeric'],
-            'airbus_detail' => ['required', 'string', 'min:20'],
+            'airbus_updated_detail' => ['required', 'string', 'min:20'],
         ]);
 
-        if ($request->hasFile('airbus_image_file')) {
+        if ($request->hasFile('airbus_image_file')) {  //chech either it was image file or not, if file then validate others such as requred, max size how much, and image then rename the file, because some time malicious code come with file name
             $request->validate([
-                'airbus_image_file' => ['required', 'max:4096', 'image'],
+                'image_updated_file' => ['required', 'max:4096', 'image'],
             ]);
             // Process the file
-            $airbusImageFile = time() . '_' . Str::slug($request->file('airbus_image_file')->getClientOriginalName()); //Str::uuid()
-            $airbusImageFilePath = $request->file('airbus_image_file')->storeAs('AirbusImageDirectory', $airbusImageFile);
+            $airbusImageFile = time() . '_' . Str::slug($request->file('image_updated_file')->getClientOriginalName()); //Str::uuid()
+            $airbusImageFilePath = $request->file('image_updated_file')->storeAs('AirbusImageDirectory', $airbusImageFile);
+            File::delete(public_path($update->airbus_image));
             $update->airbus_image = 'storage/'.$airbusImageFilePath;
        } 
 
-       $update->airbusname = $request->airbus_updated_name;
+       $update->airbusname = $request->airbus_updated_name;  // take other attributes data from input filled 
        $update->airbus_description = $request->airbus_updated_detail;
        $update->type_id = $request->type_id;
        $update->save();
