@@ -48,11 +48,12 @@ class AirbusController extends Controller{
        $airbus->type_id = $request->type_id;
        $airbus->airbus_image = 'storage/'.$airbusImageFilePath;
        $airbus->save();
-
-       
        return redirect()->route('create');
     }
 
+    public function UpdateAirBusData(string $id){
+         
+    }
     public function DeleteAirbusData(string $id){
       //
     }

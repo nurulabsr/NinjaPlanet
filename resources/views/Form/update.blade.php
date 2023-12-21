@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="card-body">
-        <form action="{{route()}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('airbus.update', $airbus->id)}}" method="POST" enctype="multipart/form-data">
             @method('PUT')
             <div class="form-group">
                 <img src="{{asset($airbus->airbus_image)}}" alt="" style="width: 4vw;">

@@ -24,7 +24,7 @@
     @endforeach    
     @endif
     <div class="card-body">
-        <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('airbus.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="">Image</label>

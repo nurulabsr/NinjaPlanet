@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // Route::get('/', [AirbusController', 'HomePage']);
-Route::get('/edit/{id}', [AirbusController::class, 'EditAirbusData'])->name('posts.edit');
+Route::get('/edit/{id}', [AirbusController::class, 'EditAirbusData'])->name('airbus.edit');
+Route::get('/update/{id}', [AirbusController::class, 'UpdateAirBusData'])->name('airbus.update');
 Route::get('/create', [AirbusController::class, 'createAirbusData'])->name('create');
-Route::post('/post', [AirbusController::class, 'StoreAirBusData'])->name('posts.store');
+Route::post('/post', [AirbusController::class, 'StoreAirBusData'])->name('airbus.store');
 
 Route::group(['prefix' => 'airbus'], function(){
   
