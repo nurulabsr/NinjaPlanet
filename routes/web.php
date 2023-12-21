@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // Route::get('/', [AirbusController', 'HomePage']);
-Route::get('/edit', 'AirbusController@EditAirbusData');
+Route::get('/edit/{id}', [AirbusController::class, 'EditAirbusData'])->name('posts.edit');
 Route::get('/create', [AirbusController::class, 'createAirbusData'])->name('create');
 Route::post('/post', [AirbusController::class, 'StoreAirBusData'])->name('posts.store');
 

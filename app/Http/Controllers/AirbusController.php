@@ -19,8 +19,10 @@ class AirbusController extends Controller{
         return view('Form.create', compact('types'));
     }
 
-    public function EditAirbusData(Request $request){
-        return view('Form.update');
+    public function EditAirbusData(string $id){
+     $airbus = Airbus::findOrFail($id);
+     $types =  Type::all();
+        return view('Form.update', compact('airbus', 'types'));
     }
 
     public function StoreAirBusData(Request $request){

@@ -17,25 +17,29 @@
         </div>
     </div>
     <div class="card-body">
-        <form action="">
+        <form action="{{route()}}" method="POST" enctype="multipart/form-data">
+            @method('PUT')
             <div class="form-group">
+                <img src="{{asset($airbus->airbus_image)}}" alt="" style="width: 4vw;">
                 <label for="">Image</label>
                 <input type="file" name="image_file" class="form-control">
             </div>
             <div class="form-group">
                 <label for="">Airbus Name</label>
-                <input type="text" name="airbus_name" class="form-control">
+                <input type="text" name="airbus_name" class="form-control" value="{{$airbus->airbusname}}">
             </div>
             <div class="form-group">
                <label name="" id="">Category</label>
                <select name="" id="" class="form-control">
                 <option value="">Select</option>
-                <option value="">Option 1</option>
+                @foreach ($types as $type)
+                <option {{$type->id == $airbus->type_id ? 'selected' : ''}} value="{{$type->id}}">{{$type->type_name}}</option>
+                @endforeach
                </select>
             </div>
             <div class="form-group">
                 <label for="">Airbus Detail</label>
-                <textarea type="text" name="airbus_detail" class="form-control" rows="10"> </textarea>
+                <textarea type="text" name="airbus_detail" class="form-control" rows="10">{{$airbus->airbus_detail}}</textarea>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-warning btn-lg">
