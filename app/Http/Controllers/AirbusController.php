@@ -11,13 +11,21 @@ use Illuminate\Support\Str;
 
 class AirbusController extends Controller{
 
+
+    // public function RetrivAirbuseData(){
+    //  //demo
+    //    $data = Airbus::all();
+    //    return view('create', compact('data'));
+    // }
+
     public function HomePage(){
 
         return view('Home.home');
     }
     public function createAirbusData(Request $request){
+        $data = Airbus::all();
         $types = Type::all();
-        return view('Form.create', compact('types'));
+        return view('Form.create', compact('types', 'data'));
     }
 
     public function EditAirbusData(string $id){
@@ -82,11 +90,13 @@ class AirbusController extends Controller{
          
     }
     public function DeleteAirbusData(string $id){
-      //
+      $deleteAirbusData = Airbus::findOrFail($id);
+      $deleteAirbusData->delete();
+      return redirect()->route('create');
     }
 
     public function PermanentlyDeleteData(string $id){
-       // 
+       // 'success', 'Airbus deleted successfully'
     }
 
 

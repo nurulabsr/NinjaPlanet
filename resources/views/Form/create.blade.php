@@ -1,6 +1,26 @@
 @extends('Home.home')
 @section('section_1') 
 <div class="main-content">
+    <section>
+        <div class="row">
+            <div class="card">
+                <div class="card-body">
+                    @foreach ($data as $datum)
+                    <div class="d-flex justify-content-space-between">
+                            <img src="{{asset($datum->airbus_image)}}" alt="" style="width: 4vw;"> <br>
+                            <h1>{{$datum->airbusname}}</h1>
+                            <p>{{$datum->airbus_description}}</p>
+                            <form action="{{route('airbus.delete', $datum->id)}}" method="POST" class="d-inline">
+                             @csrf
+                             @method('DELETE')
+                               <button class="btn btn-danger btn-sm d-none d-sm-inline">Delete</button>
+                            </form>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
    <div class="card">
     <div class="card-header">
         <div class="row">
@@ -59,7 +79,6 @@
             </div>
         </form>
     </div>
-    <div></div>
    </div>
 </div>
 @endsection
