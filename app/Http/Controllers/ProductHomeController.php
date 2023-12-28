@@ -9,4 +9,9 @@ class ProductHomeController extends Controller{
     $var1 = 'Hello';
     return view('HomeProduct', compact('var1'));
    }
+
+
+     public function Notfound404(){
+        return view('404');
+    }
 }

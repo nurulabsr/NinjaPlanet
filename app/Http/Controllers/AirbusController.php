@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\GlobalNinjaMiddleware;
 use App\Models\Airbus;
 use App\Models\Type;
 use Illuminate\Support\Facades\File;
@@ -17,6 +18,11 @@ class AirbusController extends Controller{
     //    $data = Airbus::all();
     //    return view('create', compact('data'));
     // }
+
+
+    public function __construct(){
+        $this->middleware('constructmiddleware');
+    }
 
     public function HomePage(){
 
@@ -97,6 +103,21 @@ class AirbusController extends Controller{
 
     public function PermanentlyDeleteData(string $id){
        // 'success', 'Airbus deleted successfully'
+    }
+
+
+    public function Hello(){
+        return view('hello');
+    }
+
+
+
+    public function TestFunction(){
+        $data = Airbus::all();
+        return view('test', compact('data'));
+    }
+    public function Notfound404(){
+        return view('404');
     }
 
 
