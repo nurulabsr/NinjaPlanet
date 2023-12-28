@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [AirbusController::class, 'HomePage']);
+Route::get('/', [ProductHomeController::class, 'HomePage']);
 Route::get('/create', [AirbusController::class, 'createAirbusData'])->name('create');
 Route::post('/post', [AirbusController::class, 'StoreAirBusData'])->name('airbus.store');
 
@@ -35,6 +35,8 @@ Route::delete('delete/{id}', [AirbusController::class, 'DeleteAirbusData'])->nam
 
 // });
 
+Route::get('test2', [ProductHomeController::class, 'Test2']);
+Route::get('test3/', [ProductHomeController::class, 'TestThree']);
 Route::get('404/', [ProductHomeController::class, 'Notfound404'])->name('404');
 Route::get('hello/', [AirbusController::class, 'Hello']);
 Route::get('test/', [AirbusController::class, 'TestFunction']);

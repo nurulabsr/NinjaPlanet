@@ -1,3 +1,3 @@
 <div>
-   <h1>Hello Bangladesh</h1>
+   <h1>{{$slot}}</h1>
 </div>
