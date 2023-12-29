@@ -7,11 +7,12 @@
     <title>{{$title_of_heading}}</title>
 </head>
 <body>
-  <div>
-      <x-test-component> Hello </x-test-component>
-      <x-test-component> Hello,  </x-test-component>
-      <x-test-component> Hello, My................</x-test-component>
-      <x-test-component> Hello, World </x-test-component>
-  </div>
+    @foreach ($data as $datum)
+    <x-test3>
+        <x-slot name="title">
+          {{$datum->type_name}}
+        </x-slot>
+    </x-test3>
+    @endforeach
 </body>
 </html>

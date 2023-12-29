@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Airbus;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class ProductHomeController extends Controller{
@@ -30,5 +31,16 @@ class ProductHomeController extends Controller{
 
       $data = Airbus::all();
       return view('Home.testThree', compact('data'));
+    }
+
+
+    public function TestThree3(){
+       $data = Airbus::all();
+       return view('test3', compact('data'));
+    }
+
+    public function TestFour(){
+      $data = Type::all();
+      return view('test4', compact('data'));
     }
 }

@@ -40,3 +40,5 @@ Route::get('test3/', [ProductHomeController::class, 'TestThree']);
 Route::get('404/', [ProductHomeController::class, 'Notfound404'])->name('404');
 Route::get('hello/', [AirbusController::class, 'Hello']);
 Route::get('test/', [AirbusController::class, 'TestFunction']);
+Route::get('testThree/', [ProductHomeController::class, 'TestThree3']);
+Route::get('test4/', [ProductHomeController::class, 'TestFour']);
