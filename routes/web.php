@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AirbusController;
@@ -64,9 +63,9 @@ Route::get('test4/', [ProductHomeController::class, 'TestFour']);
 Route::get('homePaginatorErr', [ProductHomeController::class, 'HomeWithoutPaginator']);
 Route::get('home', [ProductHomeController::class, 'Home']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
