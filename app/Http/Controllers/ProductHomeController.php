@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Airbus;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class ProductHomeController extends Controller{
 
@@ -68,4 +69,13 @@ class ProductHomeController extends Controller{
    
     // note: session()->all() or put([]) / put('airbus_id', 'asdqwer1234569872YxBLTYPER') or forget() or flush()
     // note (Alternative method): $request->session()->all() or put([]) / put('airbus_id', 'asdqwer1234569872YxBLTYPER') or forget() or flush()
+
+
+    public function Home(){
+      $data = Cache::remember('airbuses', 3600, function(){
+        return Airbus::paginate(2);
+      });
+
+      return view('Product.Home', compact('data'));
+    }
 }
