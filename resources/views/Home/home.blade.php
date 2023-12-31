@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>{{$title_of_heading}}</title>
+    <style>
+        .rounded-circle:hover {
+            transform: scale(1.1);
+            transition: transform 0.1s ease-in-out;
+        }
+    </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -53,7 +59,7 @@
             @endif
             </ul>
             <span class="navbar-text text-light ml-2">
-                    <img src="https://placekitten.com/200/200" alt="Circular Image" class="rounded-circle" style="width: 50px;">
+                 <a href="{{route('profile.data')}}"><img src="https://placekitten.com/200/200" alt="Circular Image" class="rounded-circle" style="width: 25px;"> </a>   
             </span>
         </div>
     </div>

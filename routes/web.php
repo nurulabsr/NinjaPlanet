@@ -67,6 +67,8 @@ Route::get('home', [ProductHomeController::class, 'Home']);
 //     return view('welcome');
 // });
 
+Route::get('profilea', [ProductHomeController::class, 'UserData'])->name('profile.data');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

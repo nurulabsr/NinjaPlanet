@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Airbus;
 use App\Models\Type;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 
 class ProductHomeController extends Controller{
@@ -84,5 +86,14 @@ class ProductHomeController extends Controller{
         return Airbus::with('types')->paginate(1);
       });
       return view('Product.AirbusHomeData', compact('data'));
+    }
+   
+    public function data(){
+      $data = User::all();
+    }
+
+    public function UserData(){
+      $data = Auth::user();
+      return view('profile.partials.userProfile', compact('data'));
     }
 }
