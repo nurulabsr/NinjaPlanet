@@ -62,8 +62,10 @@ class ProductHomeController extends Controller{
     }
 
     public function deleteSession_Version2(){
-      session()->flush(); // all session will flush.
+      session()->flush(); // all session will flush...
       return redirect('session');
     }
-
+   
+    // note: session()->all() or put([]) / put('airbus_id', 'asdqwer1234569872YxBLTYPER') or forget() or flush()
+    // note (Alternative method): $request->session()->all() or put([]) / put('airbus_id', 'asdqwer1234569872YxBLTYPER') or forget() or flush()
 }
