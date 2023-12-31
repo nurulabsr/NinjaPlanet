@@ -38,6 +38,7 @@ Route::delete('delete/{id}', [AirbusController::class, 'DeleteAirbusData'])->nam
 Route::get('session', [ProductHomeController::class, 'retriveSession']);
 Route::get('storeSession', [ProductHomeController::class, 'storingSession']);
 Route::get('deleteSession', [ProductHomeController::class, 'deleteSession']);
+Route::get('deleteSession_v2', [ProductHomeController::class, 'deleteSession_Version2']);
 Route::get('test2', [ProductHomeController::class, 'Test2']);
 Route::get('test3/', [ProductHomeController::class, 'TestThree']);
 Route::get('404/', [ProductHomeController::class, 'Notfound404'])->name('404');

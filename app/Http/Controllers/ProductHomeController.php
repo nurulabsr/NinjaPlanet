@@ -61,4 +61,9 @@ class ProductHomeController extends Controller{
       return redirect('session');
     }
 
+    public function deleteSession_Version2(){
+      session()->flush(); // all session will flush.
+      return redirect('session');
+    }
+
 }
