@@ -48,5 +48,5 @@ Route::get('testThree/', [ProductHomeController::class, 'TestThree3']);
 Route::get('test4/', [ProductHomeController::class, 'TestFour']);
 
 // Working with Cache 
-
+Route::get('homePaginatorErr', [ProductHomeController::class, 'HomeWithoutPaginator']);
 Route::get('home', [ProductHomeController::class, 'Home']);
