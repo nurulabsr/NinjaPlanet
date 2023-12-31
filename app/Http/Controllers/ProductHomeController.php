@@ -71,11 +71,18 @@ class ProductHomeController extends Controller{
     // note (Alternative method): $request->session()->all() or put([]) / put('airbus_id', 'asdqwer1234569872YxBLTYPER') or forget() or flush()
 
 
-    public function Home(){
-      $data = Cache::remember('airbuses', 3600, function(){
-        return Airbus::paginate(2);
+    public function HomeWithoutPaginator(){
+      $data = Cache::remember('airbuses', 3600, function(){  // ::remember() or ::rememberForever()
+        return Airbus::with('types')->paginate(1);
       });
 
       return view('Product.Home', compact('data'));
+    }
+
+    public function Home(){
+      $data = Cache::remember('airbuses-page'.request('page', 1), 60, function(){
+        return Airbus::with('types')->paginate(1);
+      });
+      return view('Product.AirbusHomeData', compact('data'));
     }
 }
