@@ -22,10 +22,10 @@
                     <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="#">Features</a>
+                    <a class="nav-link text-light" href="{{route('login')}}">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="#">Pricing</a>
+                    <a class="nav-link text-light" href="{{route('register')}}">Register</a>
                 </li>
             </ul>
             <span class="navbar-text text-light">
