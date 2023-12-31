@@ -43,4 +43,15 @@ class ProductHomeController extends Controller{
       $data = Type::all();
       return view('test4', compact('data'));
     }
+
+
+    public function retriveSession(Request $request){
+        $data = $request->session()->all();
+        dd($data);
+    }
+
+    public function storingSession(Request $request){
+       $request->session()->put(['email' => 'user@edu.com']);
+       return redirect('session');
+    }
 }
