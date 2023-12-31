@@ -47,6 +47,7 @@ Route::delete('delete/{id}', [AirbusController::class, 'DeleteAirbusData'])->nam
 
 // });
 
+Route::group(['middleware' => 'auth'], function(){
 Route::get('session', [ProductHomeController::class, 'retriveSession']);
 Route::get('storeSession', [ProductHomeController::class, 'storingSession']);
 Route::get('deleteSession', [ProductHomeController::class, 'deleteSession']);
@@ -58,6 +59,7 @@ Route::get('hello/', [AirbusController::class, 'Hello']);
 Route::get('test/', [AirbusController::class, 'TestFunction']);
 Route::get('testThree/', [ProductHomeController::class, 'TestThree3']);
 Route::get('test4/', [ProductHomeController::class, 'TestFour']);
+});
 
 // Working with Cache 
 Route::get('homePaginatorErr', [ProductHomeController::class, 'HomeWithoutPaginator']);
