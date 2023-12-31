@@ -51,7 +51,14 @@ class ProductHomeController extends Controller{
     }
 
     public function storingSession(Request $request){
-       $request->session()->put(['email' => 'user@edu.com']);
+       $request->session()->put(['email' => 'user@edu.com', 'ip_address' => '192.168.5.21', 'location' => 'Dhacca']);
        return redirect('session');
     }
+
+
+    public function deleteSession(Request $request){
+      $request->session()->forget('location');
+      return redirect('session');
+    }
+
 }
