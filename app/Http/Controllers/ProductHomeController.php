@@ -125,7 +125,12 @@ class ProductHomeController extends Controller{
         }
 
         $profileImageOFUser = Str::uuid(). '__' . Str::slug($request->image_updated_file->getClientOriginalName());
-        
+        $filePathOfImage = $request->image_updated_file->storeAs('UserProfilePicture', $profileImageOFUser);
+        $users->name = $request->user_name;
+        $users->email = $request->user_email_address;
+        $users->user_role_id = $request->type_id;
+        $users->user_profile_picture = 'storage/'.$filePathOfImage;
+        $users->save();
     }
 
     public function DeleteUserData(string $id){
