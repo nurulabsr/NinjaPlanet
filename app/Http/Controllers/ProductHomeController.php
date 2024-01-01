@@ -104,9 +104,9 @@ class ProductHomeController extends Controller{
     }
 
 
-    public function UpdateUserData(){
-      
-
-      return view('UserData.update-user-data');
+    public function UpdateUserData(string $id){
+      $userData = User::findOrFail($id);
+      // $userType = 
+      return view('UserData.update-user-data', compact('userdata'));
     }
 }

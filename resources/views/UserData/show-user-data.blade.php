@@ -15,7 +15,7 @@
                   </div>
                  </div>
               </div>
-              <div class="card-body">
+              <div class="card-body shadow">
                   <div class="table-responsive">
                       <table class="table table-striped table-bordered border-dark">
                           <thead style="background: #f2f2f2">
@@ -42,11 +42,11 @@
                                   <td>{{ $datum->created_at->format('Y-m-d') }}</td>
                                   <td>
                                       <a href="" class="btn btn-success btn-sm font-monospace">Detail</a>
-                                      <a href="" class="btn btn-primary btn-sm font-monospace">Update</a> {{-- {{ route('post.edit', $post->id) }} --}}
+                                      <a href="{{route('', $datum->id)}}" class="btn btn-primary btn-sm font-monospace ">Update</a> {{-- {{ route('post.edit', $post->id) }} --}}
                                       <form action=" " method="POST" style="display: inline;">
                                           @csrf
                                           @method('DELETE')
-                                          <button class="btn btn-danger btn-sm  d-sm-inline font-monospace">Delete</button>
+                                          <button class="btn btn-danger btn-sm d-sm-inline font-monospace">Delete</button>
                                       </form>
                                   </td>
                               </tr>
