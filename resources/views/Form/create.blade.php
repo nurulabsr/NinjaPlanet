@@ -13,7 +13,9 @@
                             <form action="{{route('airbus.deletedata', $datum->id)}}" method="POST" class="d-inline">
                              @csrf
                              @method('DELETE')
-                               <button class="btn btn-danger btn-sm d-none d-sm-inline">Delete</button>
+                               @can('delete')
+                               <button class="btn btn-danger btn-sm d-none d-sm-inline">Delete</button> 
+                               @endcan
                             </form>
                     </div>
                     @endforeach

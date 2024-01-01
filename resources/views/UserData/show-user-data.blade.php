@@ -42,11 +42,15 @@
                                   <td>{{ $datum->created_at->format('Y-m-d') }}</td>
                                   <td>
                                       <a href="{{route('user.detail.test', $datum->id)}}" class="btn btn-success btn-sm font-monospace">Detail</a>
-                                      <a href="{{route('updateUserData.test', $datum->id)}}" class="btn btn-primary btn-sm font-monospace ">Update</a> {{-- {{ route('post.edit', $post->id) }} --}}
+                                      @can('update')
+                                      <a href="{{route('updateUserData.test', $datum->id)}}" class="btn btn-primary btn-sm font-monospace ">Update</a>
+                                      @endcan
                                       <form action="{{route('deleteUser.test',$datum->id)}}" method="POST" style="display: inline;">
                                           @csrf
                                           @method('DELETE')
+                                          @can('delete')
                                           <button class="btn btn-danger btn-sm d-sm-inline font-monospace">Delete</button>
+                                          @endcan
                                       </form>
                                   </td>
                               </tr>
