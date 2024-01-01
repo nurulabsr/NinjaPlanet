@@ -9,7 +9,7 @@ use App\Models\UserRole;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
-
+use Illuminate\Support\Str;
 class ProductHomeController extends Controller{
 
   public function HomePage(){
@@ -114,9 +114,18 @@ class ProductHomeController extends Controller{
     public function UpdateUserAndStore(string $id, Request $request){
         $users = User::findOrFail($id);
         $request->validate([
-          
+          'user_name' => ['required', 'alpha', 'max:150', 'min:3'],
+          'user_email_address' => ['required', 'email', 'unique:users, email'],
+          'type_id' => ['required', 'numeric', 'integer', 'min:1'],
         ]);
+        if($request->hasFile('image')){
+           $request->validate([
+            'image_updated_file' => ['required', 'max:2028', 'mimes:jpeg,png,jpg']
+           ]);
+        }
 
+        $profileImageOFUser = Str::uuid(). '__' . Str::slug($request->image_updated_file->getClientOriginalName());
+        
     }
 
     public function DeleteUserData(string $id){

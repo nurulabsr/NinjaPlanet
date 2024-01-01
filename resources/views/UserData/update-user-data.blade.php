@@ -34,10 +34,10 @@
             </div>
             <div class="form-group">
                 <label for="">User Name</label>
-                <input type="text" name="airbus_updated_name" class="form-control" value="{{$userData->name}}">
+                <input type="text" name="user_name" class="form-control" value="{{$userData->name}}">
             </div>
             <div class="form-group">
-               <label name="" id="">Category</label>
+               <label name="" id="">User Type</label>
                <select name="type_id" id="" class="form-control">
                 <option value="">Select</option>
                 @foreach ($userTypes as $userType)
@@ -47,7 +47,7 @@
             </div>
             <div class="form-group">
                 <label for="">User Email</label>
-                <input type="email" name="airbus_updated_detail" class="form-control" value="{{$userData->email}}">
+                <input type="email" name="user_email_address" class="form-control" value="{{$userData->email}}">
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-warning btn-lg">
