@@ -110,4 +110,10 @@ class ProductHomeController extends Controller{
       $userTypes = UserRole::all();
       return view('UserData.update-user-data', compact('userData', 'userTypes'));
     }
+
+    public function DeleteUserData(string $id){
+     $deleteUser = User::findOrFail($id);
+     $deleteUser->delete();
+     return redirect()->route('userdata.test');
+    }
 }

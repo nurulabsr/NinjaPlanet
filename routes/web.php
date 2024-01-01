@@ -62,8 +62,9 @@ Route::get('test4/', [ProductHomeController::class, 'TestFour']);
 
 //Route
 
-Route::get('userdata', [ProductHomeController::class, 'ShowUserData']);
+Route::get('userdata', [ProductHomeController::class, 'ShowUserData'])->name('userdata.test');
 Route::get('updateUserData/{id}', [ProductHomeController::class, 'UpdateUserData'])->name('updateUserData.test');
+Route::delete('delete/{id}', [ProductHomeController::class, 'DeleteUserData'])->name('deleteUser.test');
 });
 
 

@@ -43,7 +43,7 @@
                                   <td>
                                       <a href="" class="btn btn-success btn-sm font-monospace">Detail</a>
                                       <a href="{{route('updateUserData.test', $datum->id)}}" class="btn btn-primary btn-sm font-monospace ">Update</a> {{-- {{ route('post.edit', $post->id) }} --}}
-                                      <form action=" " method="POST" style="display: inline;">
+                                      <form action="{{route('deleteUser.test',$datum->id)}}" method="POST" style="display: inline;">
                                           @csrf
                                           @method('DELETE')
                                           <button class="btn btn-danger btn-sm d-sm-inline font-monospace">Delete</button>
