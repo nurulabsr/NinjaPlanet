@@ -111,6 +111,14 @@ class ProductHomeController extends Controller{
       return view('UserData.update-user-data', compact('userData', 'userTypes'));
     }
 
+    public function UpdateUserAndStore(string $id, Request $request){
+        $users = User::findOrFail($id);
+        $request->validate([
+          
+        ]);
+
+    }
+
     public function DeleteUserData(string $id){
      $deleteUser = User::findOrFail($id);
      $deleteUser->delete();
