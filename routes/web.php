@@ -26,7 +26,7 @@ use App\Http\Controllers\ProductHomeController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [ProductHomeController::class, 'HomePage']);
+Route::get('/', [ProductHomeController::class, 'HomePage'])->name('home.airbus');
 
 // Route::group(['prefix' => 'airbus'], function(){
     
@@ -46,8 +46,8 @@ Route::get('/create', [AirbusController::class, 'createAirbusData'])->name('crea
 Route::post('/post', [AirbusController::class, 'StoreAirBusData'])->name('airbus.store');
 Route::get('/edit/{id}', [AirbusController::class, 'EditAirbusData'])->name('airbus.edit');
 Route::match(['get', 'put'], '/update/{id}', [AirbusController::class, 'UpdateAirBusData'])->name('airbus.update');
+Route::delete('airbus/delete/{id}', [AirbusController::class, 'DeleteAirbusData'])->name("airbus.deletedata");
 
-Route::delete('delete/{id}', [AirbusController::class, 'DeleteAirbusData'])->name('airbus.delete');
 Route::get('session', [ProductHomeController::class, 'retriveSession']);
 Route::get('storeSession', [ProductHomeController::class, 'storingSession']);
 Route::get('deleteSession', [ProductHomeController::class, 'deleteSession']);
@@ -68,8 +68,6 @@ Route::put('user/{id}', [ProductHomeController::class, 'UpdateUserAndStore'])->n
 Route::delete('delete/{id}', [ProductHomeController::class, 'DeleteUserData'])->name('deleteUser.test');
 Route::get('userdetail/{id}', [ProductHomeController::class, 'UserDetail'])->name('user.detail.test');
 });
-
-
 
 
 

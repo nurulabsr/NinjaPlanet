@@ -10,7 +10,7 @@
                             <img src="{{asset($datum->airbus_image)}}" alt="" style="width: 4vw;"> <br>
                             <h1>{{$datum->airbusname}}</h1>
                             <p>{{$datum->airbus_description}}</p>
-                            <form action="{{route('airbus.delete', $datum->id)}}" method="POST" class="d-inline">
+                            <form action="{{route('airbus.deletedata', $datum->id)}}" method="POST" class="d-inline">
                              @csrf
                              @method('DELETE')
                                <button class="btn btn-danger btn-sm d-none d-sm-inline">Delete</button>
