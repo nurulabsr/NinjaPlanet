@@ -24,7 +24,7 @@
     @endforeach    
     @endif
     <div class="card-body">
-        <form action=" " method="POST" enctype="multipart/form-data">
+        <form action="{{route('user.updateand.store', $userData->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -45,10 +45,10 @@
                 @endforeach
                </select>
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="">User Email</label>
                 <input type="email" name="user_email_address" class="form-control" value="{{$userData->email}}">
-            </div>
+            </div> --}}
             <div class="form-group">
                 <input type="submit" class="btn btn-warning btn-lg">
             </div>

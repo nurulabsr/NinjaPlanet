@@ -115,22 +115,24 @@ class ProductHomeController extends Controller{
         $users = User::findOrFail($id);
         $request->validate([
           'user_name' => ['required', 'alpha', 'max:150', 'min:3'],
-          'user_email_address' => ['required', 'email', 'unique:users, email'],
+          // 'user_email_address' => ['required', 'email', 'unique:users,email'],
           'type_id' => ['required', 'numeric', 'integer', 'min:1'],
         ]);
         if($request->hasFile('image')){
            $request->validate([
-            'image_updated_file' => ['required', 'max:2028', 'mimes:jpeg,png,jpg']
+            'image_updated_file' => ['required', 'max:2048', 'mimes:jpeg,png,jpg']
            ]);
         }
 
         $profileImageOFUser = Str::uuid(). '__' . Str::slug($request->image_updated_file->getClientOriginalName());
         $filePathOfImage = $request->image_updated_file->storeAs('UserProfilePicture', $profileImageOFUser);
+
         $users->name = $request->user_name;
-        $users->email = $request->user_email_address;
+        // $users->email = $request->user_email_address;
         $users->user_role_id = $request->type_id;
         $users->user_profile_picture = 'storage/'.$filePathOfImage;
         $users->save();
+        return redirect()->route('userdata.test');
     }
 
     public function DeleteUserData(string $id){
