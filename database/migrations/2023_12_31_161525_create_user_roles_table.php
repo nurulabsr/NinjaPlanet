@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('user_roles', function (Blueprint $table) {
             $table->id();
-            $table->string('role_type');
+            $table->string('role_type')->default('User');
             $table->timestamps();
             $table->softDeletes();
         });

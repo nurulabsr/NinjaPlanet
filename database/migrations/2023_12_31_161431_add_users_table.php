@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->text('user_profile_picture')->nullable();
-            $table->string('user_role_id')->nullable();
+            $table->string('user_role_id')->default('1');
             $table->softDeletes();
         });
     }
