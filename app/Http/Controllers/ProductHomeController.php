@@ -100,13 +100,13 @@ class ProductHomeController extends Controller{
 
     public function ShowUserData(){
       $data = User::all();
-      return view('show-user-data', compact('data'));
+      return view('UserData.show-user-data', compact('data'));
     }
 
 
     public function UpdateUserData(){
       
 
-      return view('update-user-data');
+      return view('UserData.update-user-data');
     }
 }
