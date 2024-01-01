@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->text('user_profile_picture');
-            $table->string('user_role_id')->default(0);
+            $table->text('user_profile_picture')->nullable();
+            $table->string('user_role_id')->nullable();
             $table->softDeletes();
         });
     }

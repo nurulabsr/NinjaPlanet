@@ -14,11 +14,12 @@ class GlobalNinjaMiddleware
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next): Response {
-        if($request->has('auth') && $request->auth==1){
+        // if($request->has('auth') && $request->auth==1){
 
-            return $next($request);
-        }
+        //     return $next($request);
+        // }
         
-        return redirect()->route('404');
+        // return redirect()->route('404');
+        return $next($request);
     }
 }

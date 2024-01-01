@@ -32,35 +32,42 @@
                         <li class="nav-item">
                             <a href="{{ url('/dashboard') }}" class="nav-link active text-light">Dashboard</a>
                         </li>
-                        {{-- <x-slot name="content"> --}}
-                        <li class="nav-item">
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <x-dropdown-link :href="route('logout')"
-                                        onclick="event.preventDefault();
-                                         this.closest('form').submit();">
-                                    
-                                    {{ __('Log Out') }}
-                                </x-dropdown-link>
-                            </form>
-                        </li>
-                        {{-- </x-slot> --}}
                     @else
-                        <li  class="nav-item">
-                            <a href="{{ route('login') }}" class="nav-link active text-light">Log in</a>
-                        </li>
-
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a href="{{ route('register') }}" class="nav-link active text-light">Register</a>
-                            </li>
-                        @endif
+                      {{-- will add more later --}}
                     @endauth
-            @endif
+                @endif
             </ul>
-            <span class="navbar-text text-light ml-2">
-                 <a href="{{route('profile.data')}}"><img src="https://placekitten.com/200/200" alt="Circular Image" class="rounded-circle" style="width: 25px;"> </a>   
-            </span>
+         <ul class="navbar-nav navbar-text text-light ml-2">
+    @if (Route::has('login'))
+        @auth
+            <li class="nav-item  mr-2">
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <x-dropdown-link :href="route('logout')"
+                            onclick="event.preventDefault(); this.closest('form').submit();">
+                        {{ __('Log Out') }}
+                    </x-dropdown-link>
+                </form>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('profile.data') }}">
+                    <img src="https://placekitten.com/200/200" alt="Circular Image" class="rounded-circle" style="width: 25px;">
+                </a>
+            </li>
+        @else
+            @if (Route::has('register'))
+            <li class="nav-item">
+                <a href="{{ route('register') }}" class="nav-link active text-light">Register</a>
+            </li>
+            @endif
+            <li class="nav-item">
+                <a href="{{ route('login') }}" class="nav-link active text-light">Log in</a>
+            </li>
+        @endauth
+    @endif
+</ul>
+
+            
         </div>
     </div>
 </nav>

@@ -27,27 +27,27 @@ use App\Http\Controllers\ProductHomeController;
 |
 */
 Route::get('/', [ProductHomeController::class, 'HomePage']);
+
+// Route::group(['prefix' => 'airbus'], function(){
+    
+    
+    // });
+    
+    // Route::group(['middleware' => 'test2'], function(){
+        //     Route::get('test/', [AirbusController::class, 'Hello']);
+        
+        // });
+
+
+
+        
+Route::group(['middleware' => 'auth'], function(){
 Route::get('/create', [AirbusController::class, 'createAirbusData'])->name('create');
 Route::post('/post', [AirbusController::class, 'StoreAirBusData'])->name('airbus.store');
-
 Route::get('/edit/{id}', [AirbusController::class, 'EditAirbusData'])->name('airbus.edit');
 Route::match(['get', 'put'], '/update/{id}', [AirbusController::class, 'UpdateAirBusData'])->name('airbus.update');
 
 Route::delete('delete/{id}', [AirbusController::class, 'DeleteAirbusData'])->name('airbus.delete');
-
-// Route::group(['prefix' => 'airbus'], function(){
-  
-
-// });
-
-
-
-// Route::group(['middleware' => 'test2'], function(){
-//     Route::get('test/', [AirbusController::class, 'Hello']);
-
-// });
-
-Route::group(['middleware' => 'auth'], function(){
 Route::get('session', [ProductHomeController::class, 'retriveSession']);
 Route::get('storeSession', [ProductHomeController::class, 'storingSession']);
 Route::get('deleteSession', [ProductHomeController::class, 'deleteSession']);
@@ -59,16 +59,21 @@ Route::get('hello/', [AirbusController::class, 'Hello']);
 Route::get('test/', [AirbusController::class, 'TestFunction']);
 Route::get('testThree/', [ProductHomeController::class, 'TestThree3']);
 Route::get('test4/', [ProductHomeController::class, 'TestFour']);
+
+//Route
+
+Route::get('userdata', [ProductHomeController::class, 'ShowUserData']);
+Route::get('updateUserData', [ProductHomeController::class, 'UpdateUserData']);
 });
+
+
+
+
+
 
 // Working with Cache 
 Route::get('homePaginatorErr', [ProductHomeController::class, 'HomeWithoutPaginator']);
 Route::get('home', [ProductHomeController::class, 'Home']);
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('profilea', [ProductHomeController::class, 'UserData'])->name('profile.data');
 
 Route::get('/dashboard', function () {

@@ -20,9 +20,9 @@ class AirbusController extends Controller{
     // }
 
 
-    public function __construct(){
-        $this->middleware('constructmiddleware');
-    }
+    // public function __construct(){
+    //     $this->middleware('constructmiddleware');
+    // }
 
     public function HomePage(){
 

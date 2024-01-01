@@ -96,4 +96,17 @@ class ProductHomeController extends Controller{
       $data = Auth::user();
       return view('profile.partials.userProfile', compact('data'));
     }
+
+
+    public function ShowUserData(){
+      $data = User::all();
+      return view('show-user-data', compact('data'));
+    }
+
+
+    public function UpdateUserData(){
+      
+
+      return view('update-user-data');
+    }
 }
