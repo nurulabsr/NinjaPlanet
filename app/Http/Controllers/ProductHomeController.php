@@ -135,6 +135,11 @@ class ProductHomeController extends Controller{
         return redirect()->route('userdata.test');
     }
 
+
+     public function UserDetail($id){
+       $userDetail = User::findOrFail($id);
+       return view('UserData.user-detail', compact('userDetail'));
+     }
     public function DeleteUserData(string $id){
      $deleteUser = User::findOrFail($id);
      $deleteUser->delete();
