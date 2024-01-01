@@ -42,7 +42,7 @@
                                   <td>{{ $datum->created_at->format('Y-m-d') }}</td>
                                   <td>
                                       <a href="" class="btn btn-success btn-sm font-monospace">Detail</a>
-                                      <a href="{{route('', $datum->id)}}" class="btn btn-primary btn-sm font-monospace ">Update</a> {{-- {{ route('post.edit', $post->id) }} --}}
+                                      <a href="{{route('updateUserData.test', $datum->id)}}" class="btn btn-primary btn-sm font-monospace ">Update</a> {{-- {{ route('post.edit', $post->id) }} --}}
                                       <form action=" " method="POST" style="display: inline;">
                                           @csrf
                                           @method('DELETE')

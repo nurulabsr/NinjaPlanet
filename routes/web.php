@@ -63,7 +63,7 @@ Route::get('test4/', [ProductHomeController::class, 'TestFour']);
 //Route
 
 Route::get('userdata', [ProductHomeController::class, 'ShowUserData']);
-Route::get('updateUserData', [ProductHomeController::class, 'UpdateUserData'])->name('updateUserData.test');
+Route::get('updateUserData/{id}', [ProductHomeController::class, 'UpdateUserData'])->name('updateUserData.test');
 });
 
 

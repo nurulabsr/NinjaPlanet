@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Airbus;
 use App\Models\Type;
 use App\Models\User;
+use App\Models\UserRole;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
@@ -106,7 +107,7 @@ class ProductHomeController extends Controller{
 
     public function UpdateUserData(string $id){
       $userData = User::findOrFail($id);
-      // $userType = 
-      return view('UserData.update-user-data', compact('userdata'));
+      $userTypes = UserRole::all();
+      return view('UserData.update-user-data', compact('userData', 'userTypes'));
     }
 }
