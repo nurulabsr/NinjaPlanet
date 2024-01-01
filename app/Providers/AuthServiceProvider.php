@@ -2,10 +2,9 @@
 
 namespace App\Providers;
 
-// use Illuminate\Support\Facades\Gate;
-use App\Models\Airbus;
-use App\Policies\NinjaPolicy;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Auth;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -15,7 +14,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        Airbus::class => NinjaPolicy::class,
+        
     ];
 
     /**
@@ -23,6 +22,20 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+      Gate::define('create', function(){
+        return Auth::user()->user_role_id==2;
+      });
+
+      Gate::define('update', function(){
+        return Auth::user()->user_role_id == 2;
+      });
+
+      Gate::define('delete', function(){
+        return Auth::user()->user_role_id ==2;
+      });
+
+      Gate::define('view', function(){
+        return Auth::user()->user_role_id == 2;
+      });
     }
 }

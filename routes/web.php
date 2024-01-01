@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\ProfileController;
+use App\Http\Middleware\CheckUserRole;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AirbusController;
 use App\Http\Controllers\ProductHomeController;
@@ -62,7 +63,7 @@ Route::get('test4/', [ProductHomeController::class, 'TestFour']);
 
 //Route
 
-Route::get('userdata', [ProductHomeController::class, 'ShowUserData'])->name('userdata.test');
+Route::get('userdata', [ProductHomeController::class, 'ShowUserData'])->name('userdata.test')->middleware(CheckUserRole::class . ':2');
 Route::get('updateUserData/{id}', [ProductHomeController::class, 'UpdateUserData'])->name('updateUserData.test');
 Route::put('user/{id}', [ProductHomeController::class, 'UpdateUserAndStore'])->name('user.updateand.store');
 Route::delete('delete/{id}', [ProductHomeController::class, 'DeleteUserData'])->name('deleteUser.test');
