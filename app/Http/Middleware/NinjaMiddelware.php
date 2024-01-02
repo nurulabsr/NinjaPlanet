@@ -15,10 +15,10 @@ class NinjaMiddelware
      */
     public function handle(Request $request, Closure $next): Response{
 
-     // $country = ['bd', 'ru', 'uk', 'us'];
-     // if(!in_array($request->country, $country) && !request()->is('404')){
-     //      return redirect()->route('404');
-     // }
+     $country = ['bd', 'ru', 'uk', 'us'];
+     if(!in_array($request->country, $country) && !request()->is('404')){
+          return redirect()->route('404');
+     }
 
 
      return $next($request);
