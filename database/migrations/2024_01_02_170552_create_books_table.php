@@ -17,7 +17,9 @@ return new class extends Migration
             $table->string('book_authors');
             $table->text('book_description');
             $table->integer('book_price')->default('0');
+            $table->integer('category_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
