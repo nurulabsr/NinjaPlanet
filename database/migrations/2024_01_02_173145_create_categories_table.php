@@ -13,15 +13,19 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->string('book_category');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down(): void
-    {
+    public function down(): void {
+        Schema::table('categories', function(Blueprint $table){
+            $table->dropSoftDeletes();
+        });
         Schema::dropIfExists('categories');
     }
 };
