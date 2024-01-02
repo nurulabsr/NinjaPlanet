@@ -76,7 +76,7 @@ Route::get('userdetail/{id}', [ProductHomeController::class, 'UserDetail'])->nam
 // Working with Cache 
 Route::get('homePaginatorErr', [ProductHomeController::class, 'HomeWithoutPaginator']);
 Route::get('home', [ProductHomeController::class, 'Home'])->middleware('auth');
-Route::get('profilea', [ProductHomeController::class, 'UserData'])->name('profile.data');
+Route::get('profilea', [ProductHomeController::class, 'UserData'])->name('profile.data')->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
