@@ -28,7 +28,7 @@ class AirbusController extends Controller{
 
         return view('Home.home');
     }
-    public function createAirbusData(Request $request){
+    public function createAirbusData(){
         $data = Airbus::all();
         $types = Type::all();
         return view('Form.create', compact('types', 'data'));
