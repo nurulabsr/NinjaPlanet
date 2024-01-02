@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
-
+use App\Jobs\ProcessAirbusData;
 class AirbusController extends Controller{
 
 
@@ -29,6 +29,7 @@ class AirbusController extends Controller{
         return view('Home.home');
     }
     public function createAirbusData(){
+        ProcessAirbusData::dispatch();
         $data = Airbus::all();
         $types = Type::all();
         return view('Form.create', compact('types', 'data'));
@@ -43,7 +44,7 @@ class AirbusController extends Controller{
 
     // store Airbus data
     public function StoreAirBusData(Request $request){
-        Log::info('Form submitted');
+        // Log::info('Form submitted');
        
        $request->validate([
            'airbus_image_file' => ['required', 'max:4096', 'file', 'image', ],  //'mimes:jpeg,png'
