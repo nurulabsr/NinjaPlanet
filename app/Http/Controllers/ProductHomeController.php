@@ -145,4 +145,6 @@ class ProductHomeController extends Controller{
      $deleteUser->delete();
      return redirect()->route('userdata.test');
     }
+
+    
 }
