@@ -3,8 +3,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\CheckUserRole;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AirbusController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProductHomeController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,8 +15,6 @@ use App\Http\Controllers\ProductHomeController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,16 +28,13 @@ use App\Http\Controllers\ProductHomeController;
 Route::get('/', [ProductHomeController::class, 'HomePage'])->name('home.airbus')->middleware('auth');
 
 // Route::group(['prefix' => 'airbus'], function(){
-    
-    
     // });
     
     // Route::group(['middleware' => 'test2'], function(){
         //     Route::get('test/', [AirbusController::class, 'Hello']);
-        
-        // });
+            // });
 
-
+Route::get('book/create', [BookController::class, 'CreateBookData'])->name('book.create');
 
         
 Route::group(['middleware' => 'auth'], function(){

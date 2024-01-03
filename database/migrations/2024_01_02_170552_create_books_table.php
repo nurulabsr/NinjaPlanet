@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->text('book_name')->default('Book');
+            $table->string('book_name')->default('Book');
             $table->string('book_authors');
             $table->text('book_description');
-            $table->integer('book_price')->default('0');
+            $table->integer('book_price')->default(0);
             $table->integer('category_id');
             $table->timestamps();
             $table->softDeletes();

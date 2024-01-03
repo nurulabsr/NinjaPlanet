@@ -13,7 +13,9 @@
                 </div>
             </div>
             <div class="card-body">
-                This is the card body
+                <form action="" method="POST" enctype="multipart/form-data">
+
+                </form>
             </div>
          </div>
     </div>
