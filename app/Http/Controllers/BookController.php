@@ -44,4 +44,14 @@ class BookController extends Controller{
         $bookData->save();
     } 
 
+
+    public function CreateBookCategoryData(){
+       return view('Create');
+    }
+
+    public function StroreBookCategoryData(Request $request){
+    
+
+    }
+
 }
