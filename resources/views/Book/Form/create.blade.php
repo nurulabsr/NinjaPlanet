@@ -12,6 +12,9 @@
                     </div>
                 </div>
             </div>
+            <div class="card-body">
+                This is the card body
+            </div>
          </div>
     </div>
 @endsection
