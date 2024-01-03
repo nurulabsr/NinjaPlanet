@@ -14,7 +14,23 @@
             </div>
             <div class="card-body">
                 <form action="" method="POST" enctype="multipart/form-data">
-
+                  @csrf
+                  <div class="form-group">
+                    <label for="">Book Nme</label>
+                    <input type="text" name="book_name" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Book Author Name</label>
+                    <input type="text" name="book_author" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Book Image</label>
+                    <input type="file" name="book_image" class="form-control">
+                  </div>
+                  <div class="for-group">
+                    <label for="">Book Price</label>
+                    <input type="number" name="book_price" class="form-control">
+                  </div>
                 </form>
             </div>
          </div>

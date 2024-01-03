@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('book_name')->default('Book');
             $table->string('book_authors');
+            $table->text('book_image')->nullable();
+            $table->string('publish_year');
             $table->text('book_description');
             $table->integer('book_price')->default(0);
             $table->integer('category_id');

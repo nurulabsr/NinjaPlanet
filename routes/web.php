@@ -25,7 +25,7 @@ use App\Http\Controllers\ProductHomeController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [ProductHomeController::class, 'HomePage'])->name('home.airbus')->middleware('auth');
+Route::get('/', [ProductHomeController::class, 'HomePage'])->name('home.airbus'); //->middleware('auth');
 
 // Route::group(['prefix' => 'airbus'], function(){
     // });
