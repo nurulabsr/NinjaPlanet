@@ -46,7 +46,7 @@ class BookController extends Controller{
 
 
     public function CreateBookCategoryData(){
-       return view('Create');
+       return view('BookData.Form.Category.create');
     }
 
     public function StroreBookCategoryData(Request $request){
