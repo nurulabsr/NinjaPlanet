@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Http\Request, Illuminate\Support\Str;
-
+use App\Jobs\ProcessBookCategory;
 class BookController extends Controller{
     public function CreateBookData(){
         $books  = Book::all();
@@ -57,6 +57,8 @@ class BookController extends Controller{
         ]);
        $categoryData->book_category = $request->book_category_name;
        $categoryData->save();
+       
+       ProcessBookCategory::dispatch($categoryData);
        return redirect()->route('book.category.create');
     }
 
