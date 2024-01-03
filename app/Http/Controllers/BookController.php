@@ -21,7 +21,7 @@ class BookController extends Controller{
 
         if($request->hasFile('book_image')){
           $request->validate([
-            'book_image' => ['required'],
+            'book_image' => ['required', 'max:2048', 'mimes:png,jpg, jpeg'],
           ]);
         
         }
