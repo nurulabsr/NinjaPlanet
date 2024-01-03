@@ -16,14 +16,18 @@ class BookController extends Controller{
     public function StoreBookData(Request $request){
         $bookData = new Book();
         $request->validate([
-           
+            'book_name'     => [ 'required',  'string'  ,                       ],
+            'book_author'   => [ 'required',  'string'  ,                       ],
+            'book_price'    => [ 'required',  'integer' , 'numeric', 'min:0.001'],
+            'publish_year'  => [ 'required',  'string'  ,                       ],
+            'book_category' => [ 'required',  'string'  ,                       ]
+
         ]);
 
         if($request->hasFile('book_image')){
           $request->validate([
             'book_image' => ['required', 'max:2048', 'mimes:png,jpg, jpeg'],
-          ]);
-        
+          ]); 
         }
     }
 
