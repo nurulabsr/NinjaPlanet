@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\Category;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request, Illuminate\Support\Str;
 
 class BookController extends Controller{
     public function CreateBookData(){
@@ -39,6 +39,9 @@ class BookController extends Controller{
         $bookData->book_description = $request->book_description;
         $bookData->book_price       = $request->book_price;
         $bookData->category_id      = $request->book_category_id;
+        $bookData->book_image       = 'storage/'.$book_image_path;
+
+        $bookData->save();
     } 
 
 }
