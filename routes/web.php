@@ -34,10 +34,10 @@ Route::get('/', [ProductHomeController::class, 'HomePage'])->name('home.airbus')
         //     Route::get('test/', [AirbusController::class, 'Hello']);
             // });
 
-Route::get('book/create', [BookController::class, 'CreateBookData'])->name('book.create');
-Route::post('book/store', [BookController::class, 'StoreBookData'])->name('book.store');
-Route::get('book/category/create/', [BookController::class, 'CreateBookCategoryData'])->name('book.category.create');
-Route::post('book/category/store', [BookController::class, 'StroreBookCategoryData'])->name('booke.category.store');
+Route::get('book/create', [BookController::class, 'CreateBookData'])->name('book.create')->middleware('auth');
+Route::post('book/store', [BookController::class, 'StoreBookData'])->name('book.store')->middleware('auth');
+Route::get('book/category/create/', [BookController::class, 'CreateBookCategoryData'])->name('book.category.create')->middleware('auth', CheckUserRole::class . ':2');
+Route::post('book/category/store', [BookController::class, 'StroreBookCategoryData'])->name('booke.category.store')->middleware('auth', CheckUserRole::class . ':2');
 
         
 Route::group(['middleware' => 'auth'], function(){

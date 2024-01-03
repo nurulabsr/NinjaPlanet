@@ -74,9 +74,11 @@
                 <label for="">Airbus Detail</label>
                 <textarea type="text" name="airbus_detail" class="form-control" rows="10"> </textarea>
             </div>
+            @can('create')
             <div class="form-group mt-3">
                 <button class="btn btn-primary">Submit</button>
             </div>
+            @endcan
         </form>
     </div>
    </div>
