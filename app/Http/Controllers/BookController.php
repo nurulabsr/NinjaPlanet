@@ -10,18 +10,18 @@ class BookController extends Controller{
     public function CreateBookData(){
         $books  = Book::all();
         $categories = Category::all();
-        return view('Book.Form.create', compact('books', 'categories'));
+        return view('BookData.Form.Book.create', compact('books', 'categories'));
     }
 
     public function StoreBookData(Request $request){
         $bookData = new Book();
         $request->validate([
-            'book_name'     =>    [ 'required',  'string'  ,   'alpha_num',  'size:255'  ],
-            'book_author'   =>    [ 'required',  'string'  ,   'alpha_num',  'size:255'  ],
-            'book_price'    =>    [ 'required',  'integer' ,   'numeric',    'min:0.001' ],
-            'publish_year'  =>    [ 'required',  'string'  ,   'numeric',    'integer'   ],
-            'book_category' =>    [ 'required',  'string'  ,   'alpha_num',  'size:256'  ],
-            'book_description' => [ 'required',   'string',    'alpha_num',  'size:5000' ],
+            'book_name'     =>    [ 'required',  'string'  ,   'regex:/^[A-Za-z0-9\s]+$/',  'max:255'  ],
+            'book_author'   =>    [ 'required',  'string'  ,   'regex:/^[A-Za-z0-9\s]+$/',  'max:255'  ],
+            'book_price'    =>    [ 'required',  'integer' ,   'numeric',    'min:0'                   ],
+            'publish_year'  =>    [ 'required',  'string'  ,   'numeric',    'integer'                 ],
+            'book_category_id' =>    [ 'required',  'string'  ,   'regex:/^[A-Za-z0-9\s]+$/',  'max:256'  ],
+            'book_description' => [ 'required',  'string',  'max:5000' ],
   
         ]);
 
@@ -42,6 +42,7 @@ class BookController extends Controller{
         $bookData->book_image       = 'storage/'.$book_image_path;
 
         $bookData->save();
+        return redirect()->route('book.create');
     } 
 
 

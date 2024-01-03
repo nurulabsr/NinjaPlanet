@@ -35,6 +35,7 @@ Route::get('/', [ProductHomeController::class, 'HomePage'])->name('home.airbus')
             // });
 
 Route::get('book/create', [BookController::class, 'CreateBookData'])->name('book.create');
+Route::post('book/store', [BookController::class, 'StoreBookData'])->name('book.store');
 Route::get('book/category/create/', [BookController::class, 'CreateBookCategoryData'])->name('book.category.create');
 Route::post('book/category/store', [BookController::class, 'StroreBookCategoryData'])->name('booke.category.store');
 
