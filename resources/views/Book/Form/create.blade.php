@@ -37,7 +37,7 @@
                   </div>
                   <div class="form-group">
                     <label for="">Book Category</label>
-                    <select name="book_category" class="form-control">
+                    <select name="book_category_id" class="form-control">
                         <option value="">Select</option>
                         @foreach ($categories as $category)
                             <option value=""></option>

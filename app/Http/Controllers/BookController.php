@@ -30,6 +30,13 @@ class BookController extends Controller{
             'book_image' => ['required', 'max:2048', 'mimes:png,jpg, jpeg'],
           ]); 
         }
-    }
+
+        $bookData->book_name        = $request->book_name;     
+        $bookData->book_authors     = $request->book_author;
+        $bookData->publish_year     = $request->publish_year;
+        $bookData->book_description = $request->book_description;
+        $bookData->book_price       = $request->book_price;
+        $bookData->category_id      = $request->book_category_id;
+    } 
 
 }
