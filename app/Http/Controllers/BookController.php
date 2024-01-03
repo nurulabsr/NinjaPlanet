@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller{
     public function CreateBookData(){
-        $data  = Book::all();
-        $data = Category::all();
-        return view('Book.Form.create', compact('data'));
+        $books  = Book::all();
+        $categories = Category::all();
+        return view('Book.Form.create', compact('books', 'categories'));
     }
 }

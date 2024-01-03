@@ -37,7 +37,8 @@
                   </div>
                   <div class="form-group">
                     <label for="">Book Category</label>
-                    <select name="book_category" id="">
+                    <select name="book_category" class="form-control">
+                        <option value="">Select</option>
                         @foreach ($categories as $category)
                             <option value=""></option>
                         @endforeach
@@ -47,7 +48,7 @@
                     <label for="">Book Description</label>
                     <textarea type="text" name="book_description" class="form-control" cols="20" rows="10"></textarea>
                   </div>
-                  <div class="form-control">
+                  <div class="form-group">
                     <button class="btn btn-primary">Submit</button>
                   </div>
                 </form> 
