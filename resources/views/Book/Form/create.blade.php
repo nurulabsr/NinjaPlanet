@@ -27,11 +27,30 @@
                     <label for="">Book Image</label>
                     <input type="file" name="book_image" class="form-control">
                   </div>
-                  <div class="for-group">
+                  <div class="form-group">
                     <label for="">Book Price</label>
                     <input type="number" name="book_price" class="form-control">
                   </div>
-                </form>
+                  <div class="form-group">
+                    <label for="">Publish Year</label>
+                    <input type="text" name="publish_year" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Book Category</label>
+                    <select name="book_category" id="">
+                        @foreach ($categories as $category)
+                            <option value=""></option>
+                        @endforeach
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Book Description</label>
+                    <textarea type="text" name="book_description" class="form-control" cols="20" rows="10"></textarea>
+                  </div>
+                  <div class="form-control">
+                    <button class="btn btn-primary">Submit</button>
+                  </div>
+                </form> 
             </div>
          </div>
     </div>
