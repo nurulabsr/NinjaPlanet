@@ -30,6 +30,8 @@ class BookController extends Controller{
             'book_image' => ['required', 'max:2048', 'mimes:png,jpg, jpeg'],
           ]); 
         }
+        $chnage_book_image_file_name = Str::uuid() .'_Ninja_'. Str::slug($request->book_image->getClientOriginalName());
+        $book_image_path = $request->book_image->storeAs('BookImage', $chnage_book_image_file_name);
 
         $bookData->book_name        = $request->book_name;     
         $bookData->book_authors     = $request->book_author;
