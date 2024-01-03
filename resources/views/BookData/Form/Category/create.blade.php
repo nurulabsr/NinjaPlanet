@@ -13,12 +13,19 @@
                     </div>
                 </div>
             </div>
-            <div class="card-header">
-                <form action="" method="POST" enctype="multipart/form-data">
+            @if($errors->any())
+            @foreach ($errors->all() as $error )
+                 <div class="alert alert-danger">
+                  {{$error}}
+                 </div>
+            @endforeach    
+            @endif
+            <div class="card-body">
+                <form action="{{route('booke.category.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                    <div class="form-group">
                      <label for="">Category Name</label>
-                     <input type="text" name="book_category" class="form-control">
+                     <input type="text" name="book_category_name" class="form-control">
                    </div>
                    <div class="form-group">
                      <button class="btn btn-primary">Submit</button>

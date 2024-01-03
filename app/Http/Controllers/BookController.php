@@ -50,8 +50,13 @@ class BookController extends Controller{
     }
 
     public function StroreBookCategoryData(Request $request){
-    
-
+        $categoryData = New Category();
+        $request->validate([
+            'book_category_name' => ['required', 'string', 'regex:/^[A-Za-z0-9\s]+$/'],
+        ]);
+       $categoryData->book_category = $request->book_category_name;
+       $categoryData->save();
+       return redirect()->route('book.category.create');
     }
 
 }
