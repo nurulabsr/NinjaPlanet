@@ -30,9 +30,9 @@ class AirbusController extends Controller{
     }
     public function createAirbusData(){
         ProcessAirbusData::dispatch();
-        $data = Airbus::all();
+        $airbusData = Airbus::all();
         $types = Type::all();
-        return view('Form.create', compact('types', 'data'));
+        return view('Form.create', compact('types', 'airbusData'));
     }
 
     public function EditAirbusData(string $id){

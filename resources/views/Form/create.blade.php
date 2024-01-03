@@ -5,7 +5,7 @@
         <div class="row">
             <div class="card">
                 <div class="card-body">
-                    @foreach ($data as $datum)
+                    @foreach ($airbusData as $datum)
                     <div class="d-flex justify-content-space-between">
                             <img src="{{asset($datum->airbus_image)}}" alt="" style="width: 4vw;"> <br>
                             <h1>{{$datum->airbusname}}</h1>
