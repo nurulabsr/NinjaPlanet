@@ -12,4 +12,10 @@ class BookController extends Controller{
         $categories = Category::all();
         return view('Book.Form.create', compact('books', 'categories'));
     }
+
+    public function StoreBookData(Request $request){
+        $bookData = new Book();
+        
+    }
 }
+
