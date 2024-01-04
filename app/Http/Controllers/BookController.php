@@ -62,4 +62,10 @@ class BookController extends Controller{
        return redirect()->route('book.category.create');
     }
 
+
+    public function ViewBookCategory(){
+        $BookCategories = Category::all();
+        return view('BookData.Book.view-book-category', compact('BookCategories'));
+    }
+
 }
