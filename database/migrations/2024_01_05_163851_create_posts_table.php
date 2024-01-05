@@ -16,7 +16,7 @@ return new class extends Migration
             $table->text('post_title');
             $table->text('category_id');
             $table->text('post_thumnail');
-            $table->text('pst_image');
+            $table->text('post_image');
             $table->text('post_video');
             $table->text('post_description');
             $table->timestamps();
