@@ -4,6 +4,7 @@ use App\Http\Middleware\CheckUserRole;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AirbusController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductHomeController;
 /*
 |--------------------------------------------------------------------------
@@ -26,13 +27,7 @@ use App\Http\Controllers\ProductHomeController;
 |
 */
 Route::get('/', [ProductHomeController::class, 'HomePage'])->name('home.airbus'); //->middleware('auth');
-
-// Route::group(['prefix' => 'airbus'], function(){
-    // });
-    
-    // Route::group(['middleware' => 'test2'], function(){
-        //     Route::get('test/', [AirbusController::class, 'Hello']);
-            // });
+Route::get('post/create', [PostController::class, 'CreatePost'])->name('post.create');
 
 Route::get('book/create', [BookController::class, 'CreateBookData'])->name('book.create')->middleware('auth');
 Route::post('book/store', [BookController::class, 'StoreBookData'])->name('book.store')->middleware('auth');
