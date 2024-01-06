@@ -12,4 +12,9 @@ class PostController extends Controller{
 
         return view('Post.Form.create');
     }
+
+    public function StorePost(Request $request){
+        $post = new Post();
+        
+    }
 }
