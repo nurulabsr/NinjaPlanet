@@ -7,7 +7,7 @@ use App\Models\Post;
 use App\Models\PostCategory;
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
 class PostController extends Controller{
     
     public function CreatePost(){
@@ -27,9 +27,10 @@ class PostController extends Controller{
              'post_description' => ['required', 'string']
 
         ]);
-
+         $changeFileName = Str::uuid() .'__'. Str::slug($request->post_thumnail->getClientOriginalName());
+         $filePath = $request->post_thumnail->storeAs('PostImage', $changeFileName);
         $post->post_title = $request->post_title;
-        $post->post_thumnail = $request->post_thumnail;
+        $post->post_thumnail = 'storage/'.$filePath;
         $post->post_image = $request->post_image;
         $post->category_id = $request->post_category;
         $post->post_video = $request->post_video;
