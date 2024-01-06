@@ -15,6 +15,8 @@ class PostController extends Controller{
 
     public function StorePost(Request $request){
         $post = new Post();
-        
+        $request->validate([
+            
+        ]);
     }
 }
