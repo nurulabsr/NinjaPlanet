@@ -40,7 +40,9 @@ class PostController extends Controller{
     public function StoreCategoryPost(Request $request){
        $postCategory = new Category();
        $request->validate([
-           'post_category' => ['required', 'alpha', 'string']
+           'post_category' => ['required', 'alpha', 'string'],
        ]);
+       $postCategory->post_category = $request->post_category;
+       $postCategory->save();
     }
 }
