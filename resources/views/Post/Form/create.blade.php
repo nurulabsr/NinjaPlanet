@@ -13,7 +13,19 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <h1>Hello</h1>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <label for="">Post Title</label>
+                            <input type="text" name="post_title" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Post Category</label>
+                            <select name="post_category" class="form-control">
+                                <option value="">Select</option>
+                            </select>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>    
