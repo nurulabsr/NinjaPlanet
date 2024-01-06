@@ -31,7 +31,7 @@ use App\Models\Post;
 Route::get('/', [ProductHomeController::class, 'HomePage'])->name('home.airbus'); //->middleware('auth');
 Route::get('post/create', [PostController::class, 'CreatePost'])->name('post.create');
 Route::post('post/store', [PostController::class, 'StorePost'])->name('post.store');
-Route::get('post/category', [PostController::class, 'CreateCategory'])->name('post.category.create');
+Route::get('post/category/create', [PostController::class, 'CreateCategoryPost']);
 Route::post('post/category/store', [PostController::class, 'StoreCategoryPost'])->name('post.category.store');
 
 Route::get('book/create', [BookController::class, 'CreateBookData'])->name('book.create')->middleware('auth');

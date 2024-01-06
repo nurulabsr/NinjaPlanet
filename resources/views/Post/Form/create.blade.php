@@ -13,6 +13,13 @@
                     </div>
                 </div>
             </div>
+            @if($errors->any())
+            @foreach ($errors->all() as $error )
+                 <div class="alert alert-danger">
+                  {{$error}}
+                 </div>
+            @endforeach    
+            @endif
                 <div class="card-body">
                     <form action="{{route('post.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -24,6 +31,9 @@
                             <label for="">Post Category</label>
                             <select name="post_category" class="form-control">
                                 <option value="">Select</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->post_category_name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
