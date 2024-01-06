@@ -16,7 +16,12 @@ class PostController extends Controller{
     public function StorePost(Request $request){
         $post = new Post();
         $request->validate([
-            
+            'post_title' => ['required', 'string', 'alpha'],
+             'post_category' => ['required', 'string', 'alpha'],
+             'post_thumnail' => ['required', 'file', 'image', 'mimes:png,jpg'],
+             'post_image'    => ['required', 'file', 'image', 'mimes:jpg,png'],
+             'post_video'    => ['required', 'file', 'video', 'mimes:mp4'],
+             
         ]);
     }
 }
