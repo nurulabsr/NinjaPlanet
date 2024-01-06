@@ -6,6 +6,8 @@ use App\Http\Controllers\AirbusController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductHomeController;
+use App\Models\Post;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +30,9 @@ use App\Http\Controllers\ProductHomeController;
 */
 Route::get('/', [ProductHomeController::class, 'HomePage'])->name('home.airbus'); //->middleware('auth');
 Route::get('post/create', [PostController::class, 'CreatePost'])->name('post.create');
+Route::post('post/store', [PostController::class, 'StorePost'])->name('post.store');
+Route::get('post/category', [PostController::class, 'CreateCategory'])->name('post.category.create');
+Route::post('post/category/store', [PostController::class, 'StoreCategoryPost'])->name('post.category.store');
 
 Route::get('book/create', [BookController::class, 'CreateBookData'])->name('book.create')->middleware('auth');
 Route::post('book/store', [BookController::class, 'StoreBookData'])->name('book.store')->middleware('auth');
