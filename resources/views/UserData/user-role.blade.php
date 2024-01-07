@@ -13,8 +13,15 @@
                    </div>
                 </div>
             </div>
+            {{-- @if($errors->any())
+            @foreach ($errors->all() as $error )
+                 <div class="alert alert-danger">
+                  {{$error}}
+                 </div>
+            @endforeach
+            @endif --}}
             <div class="card-body">
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{{route('user.role.store')}}" method="POST" enctype="multipart/form-data">
                   @csrf
                   <div class="form-group">
                      <label for="">Add User Role</label>

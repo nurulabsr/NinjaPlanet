@@ -69,7 +69,7 @@ class ProductHomeController extends Controller{
       session()->flush(); // all session will flush...
       return redirect('session');
     }
-   
+
     // note: session()->all() or put([]) / put('airbus_id', 'asdqwer1234569872YxBLTYPER') or forget() or flush()
     // note (Alternative method): $request->session()->all() or put([]) / put('airbus_id', 'asdqwer1234569872YxBLTYPER') or forget() or flush()
 
@@ -88,7 +88,7 @@ class ProductHomeController extends Controller{
       });
       return view('Product.AirbusHomeData', compact('data'));
     }
-   
+
     public function data(){
       $data = User::all();
     }
@@ -97,12 +97,34 @@ class ProductHomeController extends Controller{
       $data = Auth::user();
       return view('profile.partials.userProfile', compact('data'));
     }
-   
+
 
     public function CreateUserRole(){
-        
+
         return view('UserData.user-role');
     }
+
+
+    public function StoreUserRole(Request $request){
+        try {
+            $userRole = new UserRole();
+            $request->validate([
+            'add_user_role' => ['required', 'string'],
+            ]);
+
+            $userRole->role_type = $request->add_user_role;
+            $userRole->save();
+            return redirect()->route('user.role.create')->with('success', 'User role added successfully!');
+        }
+        catch (QueryException $e) {
+            if ($e->getCode() == Connection::SQLSTATE_UNIQUE_CONSTRAINT_VIOLATION) {
+                return redirect()->route('user.role.create')->withInput()->withErrors(['add_user_role' => 'This user role already exists.']);
+            }
+            return redirect()->route('user.role.create')->withInput()->withErrors(['error' => 'An error occurred. Please try again.']);
+        }
+
+    }
+
 
     public function ShowUserData(){
       $data = User::all();
@@ -151,5 +173,5 @@ class ProductHomeController extends Controller{
      return redirect()->route('userdata.test');
     }
 
-    
+
 }
