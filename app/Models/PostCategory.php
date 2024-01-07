@@ -9,5 +9,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class PostCategory extends Model
 {
     use HasFactory, SoftDeletes;
-   
+    protected $fillable = ['post_category_name'];
 }

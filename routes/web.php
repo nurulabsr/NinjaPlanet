@@ -31,7 +31,7 @@ use App\Models\Post;
 Route::get('/', [ProductHomeController::class, 'HomePage'])->name('home.airbus'); //->middleware('auth');
 Route::get('post/create', [PostController::class, 'CreatePost'])->name('post.create');
 Route::post('post/store', [PostController::class, 'StorePost'])->name('post.store');
-Route::get('post/category/create', [PostController::class, 'CreateCategoryPost']);
+Route::get('post/category/create', [PostController::class, 'CreateCategoryPost'])->name('post.category.create');
 Route::post('post/category/store', [PostController::class, 'StoreCategoryPost'])->name('post.category.store');
 
 Route::get('book/create', [BookController::class, 'CreateBookData'])->name('book.create')->middleware('auth');
@@ -61,11 +61,13 @@ Route::get('test4/', [ProductHomeController::class, 'TestFour']);
 
 //Route
 
-Route::get('userdata', [ProductHomeController::class, 'ShowUserData'])->name('userdata.test')->middleware(CheckUserRole::class . ':2');
+Route::get('userdata', [ProductHomeController::class, 'ShowUserData'])->name('userdata.test'); //->middleware(CheckUserRole::class . ':2');
 Route::get('updateUserData/{id}', [ProductHomeController::class, 'UpdateUserData'])->name('updateUserData.test');
 Route::put('user/{id}', [ProductHomeController::class, 'UpdateUserAndStore'])->name('user.updateand.store');
 Route::delete('delete/{id}', [ProductHomeController::class, 'DeleteUserData'])->name('deleteUser.test');
 Route::get('userdetail/{id}', [ProductHomeController::class, 'UserDetail'])->name('user.detail.test');
+Route::get('user/role/create', [ProductHomeController::class, 'CreateUserRole'])->name('user.role.create');
+Route::post('user/role/store', [ProductHomeController::class, 'StoreUserRole'])->name('user.role.store');
 });
 
 

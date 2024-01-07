@@ -8,8 +8,9 @@
                         <h1 class="m-2">Add post</h1>
                     </div>
                     <div class="col-md-6 d-flex justify-content-end">
-                       <button class="btn btn-success btn-sm m-3">View All Post</button>
-                       <button class="btn btn-warning btn-sm m-3">Recycle Bin</button>
+                       <a class="btn btn-success btn-sm m-3 display-inline">View All Post </a>
+                       <a class="btn btn-warning btn-sm m-3">Recycle Bin</a>
+                       <a href="{{route('post.category.create')}}" class="btn btn-warning btn-sm m-3">Add Ccategory</a>
                     </div>
                 </div>
             </div>

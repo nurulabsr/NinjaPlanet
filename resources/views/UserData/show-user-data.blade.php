@@ -37,8 +37,8 @@
                                       <img src="{{asset($datum->user_profile_picture)}}" alt="" class="img-fluid" width="40">
                                   </td>
                                   <td>{{$datum->name}}</td>
-                                  <td>{{Illuminate\Support\Str::limit($datum->email, 15)}}</td>
-                                  <td>{{$datum->userRoles->role_type}}</td>
+                                  <td>{{Illuminate\Support\Str::limit($datum->email, 15)??''}}</td>
+                                  <td>{{$datum->userRoles->role_type??''}}</td>
                                   <td>{{ $datum->created_at->format('Y-m-d') }}</td>
                                   <td>
                                       <a href="{{route('user.detail.test', $datum->id)}}" class="btn btn-success btn-sm font-monospace">Detail</a>

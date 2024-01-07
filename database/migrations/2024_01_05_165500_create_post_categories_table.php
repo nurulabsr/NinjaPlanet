@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('post_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('post_category_name');
+            $table->string('post_category_name'); //->unique()->collation('utf8mb4_unicode_ci');
             $table->timestamps();
             $table->softDeletes();
         });

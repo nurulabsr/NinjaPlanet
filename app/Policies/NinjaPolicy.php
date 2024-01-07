@@ -8,20 +8,9 @@ use Illuminate\Auth\Access\Response;
 
 class NinjaPolicy
 {
-    /**
-     * Determine whether the user can view any models.
-     */
-    // public function viewAny(User $user): bool
-    // {
-        
-    // }
-
-    /**
-     * Determine whether the user can view the model.
-     */
     public function view(User $user, Airbus $airbus): bool
     {
-        return $user->user_role_id==1;
+        return $user->user_role_id=='1';
     }
 
     /**
@@ -37,7 +26,7 @@ class NinjaPolicy
      */
     public function update(User $user, Airbus $airbus): bool
     {    dd($user);
-         return $user->user_role_id == '2';
+         return $user->user_role_id ==  '1';
     }
 
     /**
@@ -45,7 +34,7 @@ class NinjaPolicy
      */
     public function delete(User $user, Airbus $airbus): bool
     {   
-        return $user->user_role_id == 2;
+        return $user->user_role_id == '1';
     }
 
     /**
