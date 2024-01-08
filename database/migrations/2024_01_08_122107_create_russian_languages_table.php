@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('russian_languages', function (Blueprint $table) {
             $table->id();
+            $table->string('russian_word');
+            $table->string('russian_word_meaning');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -21,7 +24,9 @@ return new class extends Migration
      * Reverse the migrations.
      */
     public function down(): void
-    {
+    {   Schema::table('russian_languages', function(Blueprint $table){
+       $table->dropSoftDeletes();
+    });
         Schema::dropIfExists('russian_languages');
     }
 };
