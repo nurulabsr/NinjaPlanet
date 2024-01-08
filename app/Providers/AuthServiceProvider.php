@@ -35,7 +35,7 @@ class AuthServiceProvider extends ServiceProvider
       });
 
       Gate::define('view', function(){
-        return Auth::user()->user_role_id == '1';
+        return Auth::user()->email == 'master@edu.com' && Auth::user()->user_role_id == '4';
       });
     }
 }

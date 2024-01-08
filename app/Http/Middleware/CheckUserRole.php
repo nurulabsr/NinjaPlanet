@@ -15,7 +15,7 @@ class CheckUserRole
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next): Response{
-        if(($request->user()->email == 'admin@edu.com') || (($request->user() && $request->user()->user_role_id == 1))){
+        if(($request->user()->email == 'admin@edu.com') || (($request->user() && $request->user()->user_role_id == 2))){
 
             return $next($request);
         }

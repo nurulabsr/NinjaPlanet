@@ -39,7 +39,7 @@ Route::post('book/store', [BookController::class, 'StoreBookData'])->name('book.
 Route::get('book/category/create/', [BookController::class, 'CreateBookCategoryData'])->name('book.category.create')->middleware('auth', CheckUserRole::class . ':2');
 Route::post('book/category/store', [BookController::class, 'StroreBookCategoryData'])->name('booke.category.store')->middleware('auth', CheckUserRole::class . ':2');
 
-        
+
 Route::group(['middleware' => 'auth'], function(){
 Route::get('/create', [AirbusController::class, 'createAirbusData'])->name('create');
 Route::post('/post', [AirbusController::class, 'StoreAirBusData'])->name('airbus.store');
@@ -61,7 +61,7 @@ Route::get('test4/', [ProductHomeController::class, 'TestFour']);
 
 //Route
 
-Route::get('userdata', [ProductHomeController::class, 'ShowUserData'])->name('userdata.test'); //->middleware(CheckUserRole::class . ':2');
+Route::get('userdata', [ProductHomeController::class, 'ShowUserData'])->name('userdata.test')->middleware(CheckUserRole::class . ':2');
 Route::get('updateUserData/{id}', [ProductHomeController::class, 'UpdateUserData'])->name('updateUserData.test');
 Route::put('user/{id}', [ProductHomeController::class, 'UpdateUserAndStore'])->name('user.updateand.store');
 Route::delete('delete/{id}', [ProductHomeController::class, 'DeleteUserData'])->name('deleteUser.test');
@@ -73,7 +73,7 @@ Route::post('user/role/store', [ProductHomeController::class, 'StoreUserRole'])-
 
 
 
-// Working with Cache 
+// Working with Cache
 Route::get('homePaginatorErr', [ProductHomeController::class, 'HomeWithoutPaginator'])->middleware('auth');
 Route::get('home', [ProductHomeController::class, 'Home'])->middleware('auth');
 Route::get('profilea', [ProductHomeController::class, 'UserData'])->name('profile.data')->middleware('auth');

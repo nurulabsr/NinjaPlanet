@@ -123,9 +123,6 @@ class ProductHomeController extends Controller{
                 throw $e; // Rethrow other exceptions
             }
         }
-
-
-
     }
 
 
@@ -158,7 +155,7 @@ class ProductHomeController extends Controller{
         $filePathOfImage = $request->image_updated_file->storeAs('UserProfilePicture', $profileImageOFUser);
 
         $users->name = $request->user_name;
-        // $users->email = $request->user_email_address;
+         // $users->email = $request->user_email_address;
         $users->user_role_id = $request->type_id;
         $users->user_profile_picture = 'storage/'.$filePathOfImage;
         $users->save();
