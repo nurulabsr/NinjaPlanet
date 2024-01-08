@@ -10,8 +10,10 @@ class RussianLanguageController extends Controller{
          return view('RussianLanguage.russian-language');
     }
 
-    public function StoreLanguageVocabulary(){
-          // will add logic....
+    public function StoreLanguageVocabulary(Request $request){
+            $request->validate([
+                'add_russian_word' => ['required', 'string', 'regex:/^[\p{Cyrillic}]+$/u'],
+            ]);
         return redirect()->route('write.russian.vocabulary');
     }
 
