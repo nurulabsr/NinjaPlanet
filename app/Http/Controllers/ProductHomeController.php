@@ -106,22 +106,25 @@ class ProductHomeController extends Controller{
 
 
     public function StoreUserRole(Request $request){
-        try {
-            $userRole = new UserRole();
-            $request->validate([
-            'add_user_role' => ['required', 'string'],
-            ]);
+        $userRole = new UserRole();
+        $request->validate([
+            'add_user_role' => ['required', 'string', 'unique:user_roles,role_type'], // Enhanced validation rule
+        ]);
 
+        try {
             $userRole->role_type = $request->add_user_role;
             $userRole->save();
+
             return redirect()->route('user.role.create')->with('success', 'User role added successfully!');
-        }
-        catch (QueryException $e) {
-            if ($e->getCode() == Connection::SQLSTATE_UNIQUE_CONSTRAINT_VIOLATION) {
-                return redirect()->route('user.role.create')->withInput()->withErrors(['add_user_role' => 'This user role already exists.']);
+        } catch (QueryException $e) {
+            if ($e->getCode() === '23000') { // Check for duplicate key violation
+                return back()->withErrors(['add_user_role' => 'User role already exists.']);
+            } else {
+                throw $e; // Rethrow other exceptions
             }
-            return redirect()->route('user.role.create')->withInput()->withErrors(['error' => 'An error occurred. Please try again.']);
         }
+
+
 
     }
 
