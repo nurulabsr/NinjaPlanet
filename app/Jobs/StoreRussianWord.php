@@ -16,9 +16,12 @@ class StoreRussianWord implements ShouldQueue
     /**
      * Create a new job instance.
      */
-    public function __construct()
-    {
-        //
+
+     public $russianWord;
+     public $russianWordMeaning;
+    public function __construct($russianWord, $russianWordMeaning){
+      $this->russianWord = $russianWord;
+      $this->russianWordMeaning = $russianWordMeaning;
     }
 
     /**
