@@ -34,7 +34,7 @@ class StoreRussianWord implements ShouldQueue
         $russianLanguage = RussianLanguage::create([
               'russian_word' => $this->russianWord,
               'russian_word_meaning' => $this->russianWordMeaning,
-              'russian_language_category_id' => $this->
+              'russian_language_category_id' => $this->russianLanguageCategory,
         ]);
 
     }
