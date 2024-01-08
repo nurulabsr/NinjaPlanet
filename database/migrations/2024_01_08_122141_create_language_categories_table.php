@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('language_categories')->unique()->collation('utf8mb4_unicode_ci');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -22,7 +23,9 @@ return new class extends Migration
      * Reverse the migrations.
      */
     public function down(): void
-    {
+    {   Schema::table('language_categories', function(Blueprint $table){
+        $table->dropSoftDeletes();
+    });
         Schema::dropIfExists('language_categories');
     }
 };
