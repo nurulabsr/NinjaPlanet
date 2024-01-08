@@ -6,6 +6,7 @@ use App\Models\Airbus;
 use App\Models\Type;
 use App\Models\User;
 use App\Models\UserRole;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
