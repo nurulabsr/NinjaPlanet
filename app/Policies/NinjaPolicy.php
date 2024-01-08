@@ -8,34 +8,34 @@ use Illuminate\Auth\Access\Response;
 
 class NinjaPolicy
 {
-    public function view(User $user, Airbus $airbus): bool
-    {
-        return $user->user_role_id=='1';
-    }
+    // public function view(User $user, Airbus $airbus): bool
+    // {
+    //     return $user->user_role_id=='1';
+    // }
 
-    /**
-     * Determine whether the user can create models.
-     */
-    public function create(User $user): bool
-    {
-        return $user->user_role_id=='2';
-    }
+    // /**
+    //  * Determine whether the user can create models.
+    //  */
+    // public function create(User $user): bool
+    // {
+    //     return $user->user_role_id=='2';
+    // }
 
-    /**
-     * Determine whether the user can update the model.
-     */
-    public function update(User $user, Airbus $airbus): bool
-    {    dd($user);
-         return $user->user_role_id ==  '1';
-    }
+    // /**
+    //  * Determine whether the user can update the model.
+    //  */
+    // public function update(User $user, Airbus $airbus): bool
+    // {    dd($user);
+    //      return $user->user_role_id ==  '2';
+    // }
 
-    /**
-     * Determine whether the user can delete the model.
-     */
-    public function delete(User $user, Airbus $airbus): bool
-    {   
-        return $user->user_role_id == '1';
-    }
+    // /**
+    //  * Determine whether the user can delete the model.
+    //  */
+    // public function delete(User $user, Airbus $airbus): bool
+    // {
+    //     return $user->user_role_id == '1';
+    // }
 
     /**
      * Determine whether the user can restore the model.

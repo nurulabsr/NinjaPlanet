@@ -15,8 +15,8 @@ class CheckUserRole
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next): Response{
-        if((($request->user() && $request->user()->user_role_id == 1)) || ($request->user()->email == 'admin@edu.com')){
-            
+        if(($request->user()->email == 'admin@edu.com') || (($request->user() && $request->user()->user_role_id == 1))){
+
             return $next($request);
         }
         return redirect()->route('home.airbus');
