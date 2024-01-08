@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\RussianLanguage;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -19,7 +20,7 @@ class StoreRussianWord implements ShouldQueue
 
      public $russianWord;
      public $russianWordMeaning;
-    public function __construct($russianWord, $russianWordMeaning){
+     public function __construct($russianWord, $russianWordMeaning){
       $this->russianWord = $russianWord;
       $this->russianWordMeaning = $russianWordMeaning;
     }
@@ -27,8 +28,13 @@ class StoreRussianWord implements ShouldQueue
     /**
      * Execute the job.
      */
-    public function handle(): void
-    {
-        //
+    public function handle(): void{
+        $russianLanguage = RussianLanguage::create([
+              'russian_word' => $this->russianWord,
+              'russian_word_meaning' => $this->russianWordMeaning,
+              
+
+        ]);
+
     }
 }
