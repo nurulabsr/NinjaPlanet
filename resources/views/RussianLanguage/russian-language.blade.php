@@ -24,6 +24,12 @@
                 <input type="text" name="russian_word_meaning" class="form-control">
             </div>
             <div class="form-group">
+                <label for="">Category</label>
+                <select name="russian_language_category_id" id="">
+                    <option value="">value one</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-sm">Submit</button>
             </div>
         </form>

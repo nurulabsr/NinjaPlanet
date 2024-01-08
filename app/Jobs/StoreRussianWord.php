@@ -20,9 +20,11 @@ class StoreRussianWord implements ShouldQueue
 
      public $russianWord;
      public $russianWordMeaning;
-     public function __construct($russianWord, $russianWordMeaning){
+     public $russianLanguageCategory;
+     public function __construct($russianWord, $russianWordMeaning, $russianLanguageCategory){
       $this->russianWord = $russianWord;
       $this->russianWordMeaning = $russianWordMeaning;
+      $this->russianLanguageCategory = $russianLanguageCategory;
     }
 
     /**
@@ -32,8 +34,7 @@ class StoreRussianWord implements ShouldQueue
         $russianLanguage = RussianLanguage::create([
               'russian_word' => $this->russianWord,
               'russian_word_meaning' => $this->russianWordMeaning,
-              
-
+              'russian_language_category_id' => $this->
         ]);
 
     }
