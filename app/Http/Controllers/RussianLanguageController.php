@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class RussianLanguageController extends Controller{
 
     public function WriteLanguageVocabulary(){
-         return view('russian-language');
+         return view('RussianLanguage.russian-language');
     }
 
     public function StoreLanguageVocabulary(){

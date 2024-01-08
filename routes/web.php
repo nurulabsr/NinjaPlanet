@@ -41,7 +41,8 @@ Route::get('book/category/create/', [BookController::class, 'CreateBookCategoryD
 Route::post('book/category/store', [BookController::class, 'StroreBookCategoryData'])->name('booke.category.store')->middleware('auth', CheckUserRole::class . ':2');
 
 Route::get('russian/language/vocabulary', [RussianLanguageController::class, 'WriteLanguageVocabulary'])->name('write.russian.vocabulary');
-Route::post('russian/language/storevocabulary/', [RussianLanguageController::class, 'StoreLanguageVocabulary']);
+Route::post('russian/language/storevocabulary', [RussianLanguageController::class, 'StoreLanguageVocabulary'])->name('store.russian.vocabulary');
+
 Route::group(['middleware' => 'auth'], function(){
 Route::get('/create', [AirbusController::class, 'createAirbusData'])->name('create');
 Route::post('/post', [AirbusController::class, 'StoreAirBusData'])->name('airbus.store');

@@ -6,8 +6,8 @@
             <div class="col-md-6">
                 <h1 class="m-2">Add Russian Word</h1>
             </div>
-            <div class="col-md-6">
-                <a href="" class="btn btn-success btn-sm m-3">Note</a>
+            <div class="col-md-6 d-flex justify-content-end">
+                <a href="" class="btn btn-success btn-sm m-3">Language Note</a>
                 <a href="" class="btn btn-primary btn-sm m-3">Russian Language Category</a>
             </div>
         </div>
@@ -29,4 +29,4 @@
         </form>
     </div>
   </div>
-@endsection)
+@endsection
