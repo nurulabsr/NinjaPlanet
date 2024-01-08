@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('language_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('language_categories')->unique()->collation('utf8mb4_unicode_ci');
             $table->timestamps();
         });
     }

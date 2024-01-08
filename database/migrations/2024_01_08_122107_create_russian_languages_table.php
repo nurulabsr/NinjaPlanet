@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('russian_languages', function (Blueprint $table) {
             $table->id();
-            $table->string('russian_word');
-            $table->string('russian_word_meaning');
+            $table->string('russian_word')->unique()->collation('utf8mb4_unicode_ci');
+            $table->string('russian_word_meaning')->unique()->collation('utf8mb4_unicode_ci');
+            $table->integer('russian_language_category_id')->unique()->collation('utf8mb4_unicode_ci');
             $table->timestamps();
             $table->softDeletes();
         });
