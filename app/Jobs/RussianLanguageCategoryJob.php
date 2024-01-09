@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\LanguageCategory;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -16,16 +17,17 @@ class RussianLanguageCategoryJob implements ShouldQueue
     /**
      * Create a new job instance.
      */
-    public function __construct()
-    {
-        //
+    protected $russianLanguageCategory;
+    public function __construct($russianLanguageCategory){  
+      $this->russianLanguageCategory = $russianLanguageCategory;
     }
 
     /**
      * Execute the job.
      */
-    public function handle(): void
-    {
-        //
+    public function handle(): void{
+        $russianLanguageCategoryData = new LanguageCategory();
+        $russianLanguageCategoryData->language_categories = $this->russianLanguageCategory;
+        $russianLanguageCategoryData->save();
     }
 }
