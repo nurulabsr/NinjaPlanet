@@ -12,8 +12,15 @@
             </div>
         </div>
     </div>
+    @if ($errors->any())
+      @foreach ($errors->all() as $error)
+         <div class="alert alert-danger">
+            {{$error}}
+         </div>
+      @endforeach
+    @endif
     <div class="card-body">
-        <form action="">
+        <form action="{{route('store.russian.vocabulary')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="">Add Russian Word</label>
@@ -25,9 +32,13 @@
             </div>
             <div class="form-group">
                 <label for="">Category</label>
-                <select name="russian_language_category_id" id="">
-                    <option value="">value one</option>
+                <select name="russian_language_category_id" class="form-control">
+                    <option value="">Select</option>
+                    @foreach ($categories as $category)
+                    <option value="{{$category->id}}">{{$category->language_categories}}</option>
+                    @endforeach
                 </select>
+
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-sm">Submit</button>
