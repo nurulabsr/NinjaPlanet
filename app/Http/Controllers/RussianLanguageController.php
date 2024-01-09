@@ -35,6 +35,18 @@ class RussianLanguageController extends Controller{
         return redirect()->route('write.russian.vocabulary');
     }
 
+    public function CreateRussianLanguage(){
+       return view('RussianLanguage.russian-language-category');
+    }
+
+    public function StoreRusssianLanguageCategory(Request $request){
+       $request->validate([
+           'add_russian_language_category' => ['required', 'string']
+       ]);
+
+       
+    }
+
     public function MessageFunction(){
         return view('message');
     }

@@ -8,8 +8,8 @@
                         <h1 class="m-2">Add Language Category</h1>
                     </div>
                     <div class="col-md-6 d-flex justify-content-end">
-                        <a href="" class="btn btn-primary btn-sm">All Russian Language Data</a>
-                        <a href="" class="btn btn-success btn-sm">Create Rule</a>
+                        <a href="" class="btn btn-primary btn-sm m-3">All Russian Language Data</a>
+                        <a href="" class="btn btn-success btn-sm m-3">Create Rule</a>
                     </div>
                 </div>
             </div>
