@@ -35,4 +35,8 @@ class RussianLanguageController extends Controller{
         return redirect()->route('write.russian.vocabulary');
     }
 
+    public function MessageFunction(){
+        return view('message');
+    }
+
 }

@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 class StoreRussianWord implements ShouldQueue
 {
@@ -18,9 +19,9 @@ class StoreRussianWord implements ShouldQueue
      * Create a new job instance.
      */
 
-     public $russianWord;
-     public $russianWordMeaning;
-     public $russianLanguageCategory;
+     protected $russianWord;
+     protected $russianWordMeaning;
+     protected $russianLanguageCategory;
      public function __construct($russianWord, $russianWordMeaning, $russianLanguageCategory){
       $this->russianWord = $russianWord;
       $this->russianWordMeaning = $russianWordMeaning;
@@ -30,12 +31,15 @@ class StoreRussianWord implements ShouldQueue
     /**
      * Execute the job.
      */
-    public function handle(): void{
+    public function handle(){
+        echo $this->russianWord;
+        Log::info('Handling StoreRussianWord job...');
         $russianLanguage = new RussianLanguage();
         $russianLanguage->russian_word = $this->russianWord;
         $russianLanguage->russian_word_meaning = $this->russianWordMeaning;
         $russianLanguage->russian_language_category_id = $this->russianLanguageCategory;
         $russianLanguage->save();
+        Log::info('StoreRussianWord job completed.');
 
 
     }
