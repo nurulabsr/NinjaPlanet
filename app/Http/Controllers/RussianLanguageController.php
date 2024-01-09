@@ -22,12 +22,15 @@ class RussianLanguageController extends Controller{
                 'russian_language_category_id' => ['required', 'integer']
             ]);
 
-            $russianLanguage->russian_word = $request->add_russian_word;
-            $russianLanguage->russian_word_meaning = $request->russian_word_meaning;
-            $russianLanguage->russian_language_category_id = $request->russian_language_category_id;
-            $russianLanguage->save();
+            // $russianLanguage->russian_word = $request->add_russian_word;
+            // $russianLanguage->russian_word_meaning = $request->russian_word_meaning;
+            // $russianLanguage->russian_language_category_id = $request->russian_language_category_id;
+            // $russianLanguage->save();
 
-            // StoreRussianWord::dispatch($request->add_russian_word, $request->russian_word_meaning, $request->russian_language_category_id);
+            $russianword = $request->add_russian_word;
+            $russianwordmeaning = $request->russian_word_meaning;
+            $categoryid = $request->russian_language_category_id;
+            StoreRussianWord::dispatch($russianword, $russianwordmeaning, $categoryid);
 
         return redirect()->route('write.russian.vocabulary');
     }

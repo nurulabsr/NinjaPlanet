@@ -31,11 +31,12 @@ class StoreRussianWord implements ShouldQueue
      * Execute the job.
      */
     public function handle(): void{
-        $russianLanguage = RussianLanguage::create([
-              'russian_word' => $this->russianWord,
-              'russian_word_meaning' => $this->russianWordMeaning,
-              'russian_language_category_id' => $this->russianLanguageCategory,
-        ]);
+        $russianLanguage = new RussianLanguage();
+        $russianLanguage->russian_word = $this->russianWord;
+        $russianLanguage->russian_word_meaning = $this->russianWordMeaning;
+        $russianLanguage->russian_language_category_id = $this->russianLanguageCategory;
+        $russianLanguage->save();
+
 
     }
 }
