@@ -42,6 +42,7 @@ Route::post('book/category/store', [BookController::class, 'StroreBookCategoryDa
 
 Route::get('russian/language/vocabulary', [RussianLanguageController::class, 'WriteLanguageVocabulary'])->name('write.russian.vocabulary');
 Route::post('russian/language/storevocabulary', [RussianLanguageController::class, 'StoreLanguageVocabulary'])->name('store.russian.vocabulary');
+Route::get('russianlanguage/category/create', [RussianLanguageController::class, 'CreateRussianLanguage']);
 Route::get('message', [RussianLanguageController::class, 'MessageFunction'])->name('message');
 
 Route::group(['middleware' => 'auth'], function(){
