@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\RussianLanguageCategoryJob;
 use App\Jobs\StoreRussianWord;
 use App\Models\LanguageCategory;
 use App\Models\RussianLanguage;
@@ -43,8 +44,9 @@ class RussianLanguageController extends Controller{
        $request->validate([
            'add_russian_language_category' => ['required', 'string']
        ]);
-
-       
+     
+       $category = $request->add_russian_language_category;
+       RussianLanguageCategoryJob::dispatch($category);
     }
 
     public function MessageFunction(){
