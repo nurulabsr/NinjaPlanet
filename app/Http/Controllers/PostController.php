@@ -38,7 +38,7 @@ class PostController extends Controller{
         $post->post_video = $request->post_video;
         $post->post_description = $request->post_description;
         $post->save();
-        return redirect()->route('post.create');
+        // return redirect()->route('post.create');
     }
 
     public function CreateCategoryPost(){
