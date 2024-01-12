@@ -13,15 +13,21 @@ return new class extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
+            $table->string('tag_name');
+            $table->text('tag_description');
+            $table->string('tag_color');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down(): void
-    {
+    public function down(): void{
+        Schema::table('tags', function(Blueprint $table){
+           $table->dropSoftDeletes();
+        });
         Schema::dropIfExists('tags');
     }
 };
