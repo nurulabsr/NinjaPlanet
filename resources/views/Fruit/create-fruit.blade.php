@@ -41,9 +41,28 @@
                     <input type="date" name="fruit_harvest_season" class="form-control">
                  </div>
                  <div class="form-group">
-                    
+                    <label for="">Fruit Self Life</label>
+                    <input type="text" name="fruit_shelf_life" class="form-control">
                  </div>
-                
+                 <div class="form-group">
+                    <label for="">Fruit Storage Condition</label>
+                    <input type="text" name="fruit_storage_conditions" class="form-control">
+                 </div>
+                 <div class="form-group">
+                    <label for="">Fruit Price</label>
+                    <input type="number" name="fruit_price" class="form-control">
+                 </div>
+                 <div class="form-group">
+                    <label for="">Fruit Nutritional Information</label>
+                    <textarea name="fruit_nutritional_information" id="" cols="10" rows="5"></textarea>
+                 </div>
+                 <div class="form-group">
+                   <label for="">Fruit Description</label>
+                   <textarea name="fruit_description" id="" cols="20" rows="10"></textarea>    
+                </div>   
+                <div class="form-group">
+                    <button type="submit" class="mt-3">Submit</button>
+                </div>
               </form>
            </div>
        </div>
