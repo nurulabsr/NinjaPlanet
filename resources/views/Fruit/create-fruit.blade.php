@@ -7,7 +7,7 @@
                  <div class="col-md-6">
                     <h1 class="m-2">Add Fruit Details</h1>
                  </div>
-                 <div class="col-md-6 justify-content-end">
+                 <div class="col-md-6 d-flex justify-content-end">
                     <a href="" class="btn btn-primary btn-sm m-3">Fruit Tags</a>
                     <a href="" class="btn btn-success btn-sm m-3">Show All Fruit</a>
                  </div>
@@ -54,14 +54,14 @@
                  </div>
                  <div class="form-group">
                     <label for="">Fruit Nutritional Information</label>
-                    <textarea name="fruit_nutritional_information" id="" cols="10" rows="5"></textarea>
+                    <textarea name="fruit_nutritional_information" id="" cols="10" rows="5" class="form-control"></textarea>
                  </div>
                  <div class="form-group">
                    <label for="">Fruit Description</label>
-                   <textarea name="fruit_description" id="" cols="20" rows="10"></textarea>    
+                   <textarea name="fruit_description" id="" cols="20" rows="10" class="form-control"></textarea>    
                 </div>   
                 <div class="form-group">
-                    <button type="submit" class="mt-3">Submit</button>
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
                 </div>
               </form>
            </div>
