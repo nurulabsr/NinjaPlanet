@@ -4,6 +4,7 @@ use App\Http\Middleware\CheckUserRole;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AirbusController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\FruitController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductHomeController;
 use App\Http\Controllers\RussianLanguageController;
@@ -43,8 +44,10 @@ Route::post('book/category/store', [BookController::class, 'StroreBookCategoryDa
 Route::get('russian/language/vocabulary', [RussianLanguageController::class, 'WriteLanguageVocabulary'])->name('write.russian.vocabulary');
 Route::post('russian/language/storevocabulary', [RussianLanguageController::class, 'StoreLanguageVocabulary'])->name('store.russian.vocabulary');
 Route::get('russianlanguage/category/create', [RussianLanguageController::class, 'CreateRussianLanguage'])->name('russian.language.category');
-Route::post('russian/language/category', [RussianLanguageController::class, 'StoreRusssianLanguageCategory'])->name('russian.language.category')->middleware('auth', CheckUserRole::class . ':2');
+Route::post('russian/language/category', [RussianLanguageController::class, 'StoreRusssianLanguageCategory'])->name('russian.language.category.store')->middleware('auth', CheckUserRole::class . ':2');
 Route::get('message', [RussianLanguageController::class, 'MessageFunction'])->name('message');
+
+Route::get('fruit/create', [FruitController::class, 'CreateFruit']);
 
 Route::group(['middleware' => 'auth'], function(){
 Route::get('/create', [AirbusController::class, 'createAirbusData'])->name('create');

@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{route('russian.language.category')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('russian.language.category.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="">Add Russian Language Category</label>
