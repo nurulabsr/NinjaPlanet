@@ -9,4 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Tag extends Model
 {
     use HasFactory, SoftDeletes;
+
+   public function fruits(){
+       $this->belongsToMany(Fruit::class)->withPivot('id'); 
+    }
 }
