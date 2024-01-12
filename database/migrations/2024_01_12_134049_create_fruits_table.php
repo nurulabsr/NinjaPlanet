@@ -13,15 +13,29 @@ return new class extends Migration
     {
         Schema::create('fruits', function (Blueprint $table) {
             $table->id();
+            $table->string('fruit_name');
+            $table->text('fruit_description');
+            $table->string('fruit_scientific_name');
+            $table->string('fruit_family');
+            $table->string('fruit_genus');
+            $table->text('fruit_origin');
+            $table->date('fruit_harvest_season');
+            $table->text('fruit_nutritional_information');
+            $table->text('fruit_storage_conditions');
+            $table->string('fruit_shelf_life');
+            $table->decimal('fruit_price');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down(): void
-    {
+    public function down(): void{
+        Schema::table('fruits', function(Blueprint $table){
+            $table->dropSoftDeletes();
+        });
         Schema::dropIfExists('fruits');
     }
 };
