@@ -42,4 +42,10 @@ class FruitController extends Controller
     // $fruit->tags()->attach($tags);
 
     }
+
+
+    public function CreateTag(){
+        
+        return view('Fruit.Tag.create');
+    }
 }
