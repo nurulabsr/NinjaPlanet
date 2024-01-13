@@ -14,7 +14,7 @@
              </div>
          </div>
          <div class="card-body">
-             <form action="">
+             <form action="{{route('fruit.tag.store')}}" method="POST", enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="">Tag Name</label>
