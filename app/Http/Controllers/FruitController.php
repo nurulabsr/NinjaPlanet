@@ -15,18 +15,18 @@ class FruitController extends Controller
     public function StoreFruitDetails(Request $request){
       
         $request->validate([
-            'fruit_name'                     => [],
-            'fruit_scientific_name'          => [],
-            'fruit_family'                   => [],
-            'fruit_genus'                    => [],
-            'fruit_origin'                   => [],
-            'fruit_harvest_season'           => [],
-            'fruit_shelf_life'               => [],
-            'fruit_storage_conditions'       => [],
-            'fruit_image'                    => [],
-            'fruit_price'                    => [],
-            'fruit_nutritional_information'  => [],
-            'fruit_description'              => [],
+            'fruit_name'                     => ['required', ],
+            'fruit_scientific_name'          => ['required', ],
+            'fruit_family'                   => ['required', ],
+            'fruit_genus'                    => ['required', ],
+            'fruit_origin'                   => ['required', ],
+            'fruit_harvest_season'           => ['required', ],
+            'fruit_shelf_life'               => ['required', ],
+            'fruit_storage_conditions'       => ['required', ],
+            'fruit_image'                    => ['required', ],
+            'fruit_price'                    => ['required', ],
+            'fruit_nutritional_information'  => ['required', ],
+            'fruit_description'              => ['required', ],
         ]);           
     }
 }
