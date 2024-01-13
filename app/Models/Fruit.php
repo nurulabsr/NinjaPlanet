@@ -13,7 +13,7 @@ class Fruit extends Model
     use HasFactory, SoftDeletes;
     protected $fillable = [
         'fruit_name', 'fruit_description', 'fruit_scientific_name',
-        'fruit_family', 'fruit_genus', 'fruit_origin', 'fruit_harvest_season',
+        'fruit_family', 'fruit_genus', 'fruit_origin', 'fruit_harvest_season', 'fruit_image',
         'fruit_nutritional_information', 'fruit_storage_conditions', 'fruit_shelf_life',
         'fruit_price'
     ];

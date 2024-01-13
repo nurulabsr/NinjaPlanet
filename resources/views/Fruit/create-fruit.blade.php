@@ -14,7 +14,7 @@
               </div>
            </div>
            <div class="card-body">
-              <form action="" method="POST" enctype="multipart/form-data">
+              <form action="{{route('fruit.detail.store')}}" method="POST" enctype="multipart/form-data">
                  @csrf
                  <div class="form-group">
                     <label for=""> Fruit Name</label>
@@ -47,6 +47,10 @@
                  <div class="form-group">
                     <label for="">Fruit Storage Condition</label>
                     <input type="text" name="fruit_storage_conditions" class="form-control">
+                 </div>
+                 <div class="form-group">
+                  <label for="">Fruit Image</label>
+                  <input type="file" name="fruit_image" class="form-control">
                  </div>
                  <div class="form-group">
                     <label for="">Fruit Price</label>
