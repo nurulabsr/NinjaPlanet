@@ -7,7 +7,12 @@ use Illuminate\Http\Request;
 class FruitController extends Controller
 {
     //
-    public function CreateFruit(){
+    public function CreateFruitDetails(){
         return view('Fruit.create-fruit');
+    }
+
+
+    public function StoreFruitDetails(){
+        
     }
 }

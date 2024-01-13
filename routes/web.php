@@ -47,7 +47,8 @@ Route::get('russianlanguage/category/create', [RussianLanguageController::class,
 Route::post('russian/language/category', [RussianLanguageController::class, 'StoreRusssianLanguageCategory'])->name('russian.language.category.store')->middleware('auth', CheckUserRole::class . ':2');
 Route::get('message', [RussianLanguageController::class, 'MessageFunction'])->name('message');
 
-Route::get('fruit/create', [FruitController::class, 'CreateFruit']);
+Route::get('fruit/create', [FruitController::class, 'CreateFruitDetails'])->name('fruit.detail.create');
+Route::post('fruit/store', [FruitController::class, 'StoreFruitDetails'])->name('fruit.detail.store');
 
 Route::group(['middleware' => 'auth'], function(){
 Route::get('/create', [AirbusController::class, 'createAirbusData'])->name('create');
