@@ -56,7 +56,12 @@ class FruitController extends Controller
         $request->validate([
             'tag_name' =>        ['required', 'string', 'max:255'],
             'tag_color' =>       ['required', 'string', 'max:255'],
-            'tag_description' => ['required', 'string', 'max:800']
+            'tag_description' => ['required', 'string', 'max:800'],
         ]);
+
+        $tag->tag_name = $request->tag_name;
+        $tag->tag_color = $request->tag_color;
+        $tag->tag_description = $request->tag_description;
+        $tag->save();
     }
 }
