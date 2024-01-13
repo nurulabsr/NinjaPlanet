@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fruit;
 use Illuminate\Http\Request;
 
 class FruitController extends Controller
@@ -13,7 +14,7 @@ class FruitController extends Controller
 
 
     public function StoreFruitDetails(Request $request){
-      
+        $fruits = new Fruit();
         $request->validate([
             'fruit_name'                     => ['required', 'string', 'max:255'],
             'fruit_scientific_name'          => ['required', 'string', 'max:255'],
@@ -35,5 +36,10 @@ class FruitController extends Controller
                   'fruit_image' => ['required', 'image', 'mimes:png,jpg', 'max:2048']
             ]);
         }
+
+
+        // $tags = $request->input('tags');
+    // $fruit->tags()->attach($tags);
+
     }
 }
