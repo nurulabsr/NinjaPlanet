@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('fruit_scientific_name');
             $table->string('fruit_family');
             $table->string('fruit_genus');
-            $table->text('fruit_origin');
+            $table->string('fruit_origin');
             $table->date('fruit_harvest_season');
             $table->text('fruit_nutritional_information');
-            $table->text('fruit_storage_conditions');
+            $table->string('fruit_storage_conditions');
             $table->string('fruit_shelf_life');
             $table->decimal('fruit_price');
             $table->timestamps();
