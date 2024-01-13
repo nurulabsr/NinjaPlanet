@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fruit;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class FruitController extends Controller
@@ -45,7 +46,17 @@ class FruitController extends Controller
 
 
     public function CreateTag(){
-        
+
         return view('Fruit.Tag.create');
+    }
+
+
+    public function StoreTag(Request $request){
+        $tag = new Tag();
+        $request->validate([
+            'tag_name' =>        ['required', 'string', 'max:255'],
+            'tag_color' =>       ['required', 'string', 'max:255'],
+            'tag_description' => ['required', 'string', 'max:800']
+        ]);
     }
 }
