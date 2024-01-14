@@ -46,7 +46,9 @@ class FruitController extends Controller
         $fruits->fruit_origin = $request->fruit_origin;
         $fruits->fruit_harvest_season = $request->fruit_harvest_season;
         $fruits->fruit_shelf_life = $request->fruit_shelf_life;
-
+        $fruits->fruit_storage_conditions = $request->fruit_storage_conditions;
+        $fruits->fruit_price = $request->fruit_price;
+        $fruits->fruit_nutritional_information = $request->fruit_nutritional_information;
         // $tags = $request->input('tags');
     // $fruit->tags()->attach($tags);
 
