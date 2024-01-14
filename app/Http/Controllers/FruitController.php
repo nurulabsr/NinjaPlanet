@@ -37,7 +37,15 @@ class FruitController extends Controller
                   'fruit_image' => ['required', 'image', 'mimes:png,jpg', 'max:2048']
             ]);
         }
+      
 
+        $fruits->fruit_name = $request->fruit_name;
+        $fruits->fruit_scientific_name = $request->fruit_scientific_name;
+        $fruits->fruit_family = $request->fruit_family;
+        $fruits->fruit_genus = $request->fruit_genus;
+        $fruits->fruit_origin = $request->fruit_origin;
+        $fruits->fruit_harvest_season = $request->fruit_harvest_season;
+        $fruits->fruit_shelf_life = $request->fruit_shelf_life;
 
         // $tags = $request->input('tags');
     // $fruit->tags()->attach($tags);

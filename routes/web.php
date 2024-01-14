@@ -49,7 +49,7 @@ Route::get('message', [RussianLanguageController::class, 'MessageFunction'])->na
 
 Route::get('fruit/create', [FruitController::class, 'CreateFruitDetails'])->name('fruit.detail.create');
 Route::post('fruit/store', [FruitController::class, 'StoreFruitDetails'])->name('fruit.detail.store');
-Route::get('fruit/tag', [FruitController::class, 'CreateTag']);
+Route::get('fruit/tag', [FruitController::class, 'CreateTag'])->name('fruit.tag.create');
 Route::post('fruit/tag/store', [FruitController::class, 'StoreTag'])->name('fruit.tag.store');
 
 Route::group(['middleware' => 'auth'], function(){
