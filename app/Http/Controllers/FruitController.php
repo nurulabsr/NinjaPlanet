@@ -49,6 +49,7 @@ class FruitController extends Controller
         $fruits->fruit_storage_conditions = $request->fruit_storage_conditions;
         $fruits->fruit_price = $request->fruit_price;
         $fruits->fruit_nutritional_information = $request->fruit_nutritional_information;
+        $fruits->fruit_description = $request->fruit_description;
         // $tags = $request->input('tags');
     // $fruit->tags()->attach($tags);
 
