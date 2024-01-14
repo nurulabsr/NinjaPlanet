@@ -53,6 +53,8 @@ class FruitController extends Controller
 
         $fruitImageFileName = Str::uuid() .'__'. Str::slug($request->fruit_image->getClientOriginalName());
         $filePath = $request->fruit_image->storeAs('Fruit', $fruitImageFileName);
+        $fruits->fruit_image = 'storage/'.$filePath;
+        $fruits->save();
         // $tags = $request->input('tags');
     // $fruit->tags()->attach($tags);
 
