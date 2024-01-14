@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Fruit;
 use App\Models\Tag;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
 class FruitController extends Controller
 {
     //
@@ -50,6 +50,9 @@ class FruitController extends Controller
         $fruits->fruit_price = $request->fruit_price;
         $fruits->fruit_nutritional_information = $request->fruit_nutritional_information;
         $fruits->fruit_description = $request->fruit_description;
+
+        $fruitImageFileName = Str::uuid() .'__'. Str::slug($request->fruit_image->getClientOriginalName());
+        $filePath = $request->fruit_image->storeAs('Fruit', $fruitImageFileName);
         // $tags = $request->input('tags');
     // $fruit->tags()->attach($tags);
 
