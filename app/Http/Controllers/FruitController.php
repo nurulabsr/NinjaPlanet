@@ -35,7 +35,7 @@ class FruitController extends Controller
 
         if($request->hasFile('fruit_image')){
             $request->validate([
-                  'fruit_image' => ['required', 'image', 'mimes:png,jpg', 'max:2048']
+                  'fruit_image' => ['required', 'image', 'mimes:png,jpg,bmp', 'max:2048']
             ]);
         }
       
@@ -58,7 +58,7 @@ class FruitController extends Controller
         $fruits->save();
         $tags = $request->input('fruit_tag');
         $fruits->tags()->attach($tags);
-
+        return redirect()->route('fruit.detail.create');
     }
 
 
@@ -80,5 +80,6 @@ class FruitController extends Controller
         $tag->tag_color = $request->tag_color;
         $tag->tag_description = $request->tag_description;
         $tag->save();
+        return redirect()->route('fruit.tag.create');
     }
 }
