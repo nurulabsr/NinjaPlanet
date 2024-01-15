@@ -13,6 +13,9 @@
                  </div>
               </div>
            </div>
+           @foreach ($errors->all() as $err)
+              {{$err}}
+           @endforeach
            <div class="card-body">
               <form action="{{route('fruit.detail.store')}}" method="POST" enctype="multipart/form-data">
                  @csrf
@@ -55,6 +58,15 @@
                  <div class="form-group">
                     <label for="">Fruit Price</label>
                     <input type="number" name="fruit_price" class="form-control">
+                 </div>
+                 <div class="formgroup">
+                  <label for="">Fruit Tag</label>
+                  <select name="fruit_tag" id="" class="form-control">
+                     <option value="">Select</option>
+                     @foreach ($tags as $tag)
+                        <option value="{{$tag->id}}">{{$tag->tag_name}}</option>
+                     @endforeach
+                  </select>
                  </div>
                  <div class="form-group">
                     <label for="">Fruit Nutritional Information</label>

@@ -10,7 +10,8 @@ class FruitController extends Controller
 {
     //
     public function CreateFruitDetails(){
-        return view('Fruit.create-fruit');
+        $tags = Tag::all();
+        return view('Fruit.create-fruit', compact('tags'));
     }
 
 
@@ -22,10 +23,10 @@ class FruitController extends Controller
             'fruit_family'                   => ['required', 'string', 'max:255'],
             'fruit_genus'                    => ['required', 'string', 'max:255'],
             'fruit_origin'                   => ['required', 'string', 'max:255'],
-            'fruit_harvest_season'           => ['required', 'date', 'date_format:Y-m-d'],
+            'fruit_harvest_season'           => ['required', 'date'],
             'fruit_shelf_life'               => ['required', 'string' , 'max:255'],
             'fruit_storage_conditions'       => ['required', 'string' , 'max:255'],
-            'fruit_price'                    => ['required', 'numeric', 'digits:5'],//digits
+            'fruit_price'                    => ['required', 'numeric', 'max_digits:5'],//digits
             'fruit_nutritional_information'  => ['required', 'string' , 'max:1500'],
             'fruit_description'              => ['required', 'string' , 'max:1500'],
         ]);  
@@ -55,19 +56,19 @@ class FruitController extends Controller
         $filePath = $request->fruit_image->storeAs('Fruit', $fruitImageFileName);
         $fruits->fruit_image = 'storage/'.$filePath;
         $fruits->save();
-        // $tags = $request->input('tags');
-    // $fruit->tags()->attach($tags);
+        $tags = $request->input('fruit_tag');
+        $fruits->tags()->attach($tags);
 
     }
 
 
-    public function CreateTag(){
+    public function CreateFruitTag(){
 
-        return view('Fruit.Tag.create');
+        return view('Fruit.Tag.fruit-tag-create');
     }
 
 
-    public function StoreTag(Request $request){
+    public function StoreFruitTag(Request $request){
         $tag = new Tag();
         $request->validate([
             'tag_name' =>        ['required', 'string', 'max:255'],
