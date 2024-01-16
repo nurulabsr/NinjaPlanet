@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\CongratulationMail;
 use App\Models\Airbus;
 use App\Models\Type;
 use App\Models\User;
@@ -181,6 +182,11 @@ class ProductHomeController extends Controller{
         $message->to("test@edu.com")->subject('Congratulations!');
       });
       dd('Success');
+    }
+
+    public function MailSend(){
+      Mail::send(new CongratulationMail());
+      dd('Success!');
     }
 
 

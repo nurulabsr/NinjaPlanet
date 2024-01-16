@@ -27,7 +27,8 @@ class CongratulationMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Congratulation Mail',
+            to: 'hello@edu.org',
+            subject: 'Hello, Congratulation!',
         );
     }
 
@@ -37,7 +38,7 @@ class CongratulationMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'congratulation.congratulation-mail',
         );
     }
 
