@@ -86,6 +86,7 @@ Route::post('user/role/store', [ProductHomeController::class, 'StoreUserRole'])-
 
 
 Route::get('mail', [ProductHomeController::class, 'SendMail']);
+Route::get('mail-send-blade', [ProductHomeController::class, 'MailSend']);
 
 // Route::get('mail', function(){
 //     Mail::raw('Hello World', function($message){
