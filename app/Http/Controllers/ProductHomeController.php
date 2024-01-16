@@ -10,6 +10,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 class ProductHomeController extends Controller{
 
@@ -172,6 +173,14 @@ class ProductHomeController extends Controller{
      $deleteUser = User::findOrFail($id);
      $deleteUser->delete();
      return redirect()->route('userdata.test');
+    }
+
+
+    public function SendMail(){
+      Mail::raw("Hello, World", function($message){
+        $message->to("test@edu.com")->subject('Congratulations!');
+      });
+      dd('Success');
     }
 
 

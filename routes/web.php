@@ -9,6 +9,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductHomeController;
 use App\Http\Controllers\RussianLanguageController;
 use App\Models\Post;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,7 +85,14 @@ Route::post('user/role/store', [ProductHomeController::class, 'StoreUserRole'])-
 });
 
 
+Route::get('mail', [ProductHomeController::class, 'SendMail']);
 
+// Route::get('mail', function(){
+//     Mail::raw('Hello World', function($message){
+//          $message->to('hello@edu.com')->subject('Congrasulation!');
+//     });
+//     dd('success');
+// });
 
 // Working with Cache
 Route::get('homePaginatorErr', [ProductHomeController::class, 'HomeWithoutPaginator'])->middleware('auth');
