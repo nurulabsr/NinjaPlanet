@@ -189,5 +189,16 @@ class ProductHomeController extends Controller{
       dd('Success!');
     }
 
+    public function PayPalPay(){
+
+    }
+
+    public function SuccessPayPal(){
+
+    }
+
+    public function CancelPayPal(){
+      
+    }
 
 }
