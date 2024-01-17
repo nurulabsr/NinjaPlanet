@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use Srmklive\PayPal\Services\PayPal as PayPalClient;
 class ProductHomeController extends Controller{
 
   public function HomePage(){
@@ -188,6 +189,10 @@ class ProductHomeController extends Controller{
       Mail::send(new CongratulationMail());
       dd('Success!');
     }
+  
+    public function Shop(){
+      return view('Shop.shop');
+    }
 
     public function PayPalPay(){
 
@@ -198,7 +203,7 @@ class ProductHomeController extends Controller{
     }
 
     public function CancelPayPal(){
-      
+
     }
 
 }
