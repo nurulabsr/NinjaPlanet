@@ -95,6 +95,11 @@ Route::get('mail-send-blade', [ProductHomeController::class, 'MailSend']);
 //     dd('success');
 // });
 
+
+Route::post('paypal-pay', [ProductHomeController::class, 'PayPalPay'])->name('paypal.pay');
+Route::get('paypal/success', [ProductHomeController::class, 'SuccessPayPal'])->name('paypal.success');
+Route::get('paypal/cancel', [ProductHomeController::class, 'CancelPayPal'])->name('paypal.cancel');
+
 // Working with Cache
 Route::get('homePaginatorErr', [ProductHomeController::class, 'HomeWithoutPaginator'])->middleware('auth');
 Route::get('home', [ProductHomeController::class, 'Home'])->middleware('auth');
