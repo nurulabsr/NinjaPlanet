@@ -195,7 +195,13 @@ class ProductHomeController extends Controller{
     }
 
     public function PayPalPay(Request $request){
-        
+        $provider = new PayPalClient;
+        $provider->setApiCredentials(config('paypal'));
+        $apiToken = $provider->getAccessToken();
+        $response = $provider->createOrder([
+          
+        ]);
+        // dd($request->all());
     }
 
     public function SuccessPayPal(){
