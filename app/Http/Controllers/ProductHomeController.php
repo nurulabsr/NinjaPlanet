@@ -194,8 +194,8 @@ class ProductHomeController extends Controller{
       return view('Shop.shop');
     }
 
-    public function PayPalPay(){
-
+    public function PayPalPay(Request $request){
+        
     }
 
     public function SuccessPayPal(){

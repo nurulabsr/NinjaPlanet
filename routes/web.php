@@ -95,7 +95,7 @@ Route::get('mail-send-blade', [ProductHomeController::class, 'MailSend']);
 //     dd('success');
 // });
 
-
+Route::get('shop', [ProductHomeController::class, 'Shop']);
 Route::post('paypal-pay', [ProductHomeController::class, 'PayPalPay'])->name('paypal.pay');
 Route::get('paypal/success', [ProductHomeController::class, 'SuccessPayPal'])->name('paypal.success');
 Route::get('paypal/cancel', [ProductHomeController::class, 'CancelPayPal'])->name('paypal.cancel');
