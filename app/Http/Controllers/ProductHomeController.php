@@ -199,7 +199,19 @@ class ProductHomeController extends Controller{
         $provider->setApiCredentials(config('paypal'));
         $apiToken = $provider->getAccessToken();
         $response = $provider->createOrder([
-          
+          "intent" => "CAPTURE",
+          "aplication_context" => [
+              "return_url" => route(''),
+              "cancel_url" => route(''),
+          ], 
+          "purchase_units" => [
+            [
+              "amount" => [
+                "currency_code" => "USD",
+                "value" => $request->price,
+              ]
+            ]
+          ]
         ]);
         // dd($request->all());
     }
