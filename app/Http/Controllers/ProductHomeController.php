@@ -201,8 +201,8 @@ class ProductHomeController extends Controller{
         $response = $provider->createOrder([
           "intent" => "CAPTURE",
           "aplication_context" => [
-              "return_url" => route(''),
-              "cancel_url" => route(''),
+              "return_url" => route('paypal.success'),
+              "cancel_url" => route('paypal.cancel'),
           ], 
           "purchase_units" => [
             [
@@ -214,6 +214,7 @@ class ProductHomeController extends Controller{
           ]
         ]);
         // dd($request->all());
+        dd($response);
     }
 
     public function SuccessPayPal(){
