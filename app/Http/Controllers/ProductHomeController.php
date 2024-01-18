@@ -214,11 +214,30 @@ class ProductHomeController extends Controller{
           ]
         ]);
         // dd($request->all());
-        dd($response);
+        // dd($response);
+        if(isset($response['id']) && $response['id'] != null){
+           foreach($response['links'] as $link){
+             if($link['rel'] == 'approve'){
+              return redirect()->away($link['href']);
+             }
+           }
+        }
+        else{
+          return redirect()->route('paypal.cancel');
+        }
     }
 
-    public function SuccessPayPal(){
+    public function SuccessPayPal(Request $request){
+        
+      $provider = new PayPalClient;
+      $provider->setApiCredentials(config('paypal'));
+      $paypalToken = $provider->getAccessToken();
+      $response = $provider->capturePaymentOrder($request->token);
 
+      if(isset($response['status']) && $response['status'] == 'COMPLETED'){
+
+      }
+      
     }
 
     public function CancelPayPal(){
