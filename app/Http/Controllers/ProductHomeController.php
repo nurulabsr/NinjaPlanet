@@ -244,7 +244,7 @@ class ProductHomeController extends Controller{
 
     public function CancelPayPal(){
        
-      
+      return "Payment Fail";
     }
 
 }
