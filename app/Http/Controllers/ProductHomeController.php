@@ -200,7 +200,7 @@ class ProductHomeController extends Controller{
         $apiToken = $provider->getAccessToken();
         $response = $provider->createOrder([
           "intent" => "CAPTURE",
-          "aplication_context" => [
+          "application_context" => [
               "return_url" => route('paypal.success'),
               "cancel_url" => route('paypal.cancel'),
           ], 
@@ -217,7 +217,8 @@ class ProductHomeController extends Controller{
         // dd($response);
         if(isset($response['id']) && $response['id'] != null){
            foreach($response['links'] as $link){
-             if($link['rel'] == 'approve'){
+            // echo implode(',', $link);
+             if($link["rel"] == "approve"){
               return redirect()->away($link['href']);
              }
            }
@@ -231,11 +232,11 @@ class ProductHomeController extends Controller{
         
       $provider = new PayPalClient;
       $provider->setApiCredentials(config('paypal'));
-      $paypalToken = $provider->getAccessToken();
+      $apiToken = $provider->getAccessToken();
       $response = $provider->capturePaymentOrder($request->token);
 
       if(isset($response['status']) && $response['status'] == 'COMPLETED'){
-
+          return "successed!";
       }
 
       return redirect()->route('paypal.cancel');
