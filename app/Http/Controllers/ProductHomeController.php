@@ -237,11 +237,14 @@ class ProductHomeController extends Controller{
       if(isset($response['status']) && $response['status'] == 'COMPLETED'){
 
       }
-      
+
+      return redirect()->route('paypal.cancel');
+
     }
 
     public function CancelPayPal(){
-
+       
+      
     }
 
 }
